@@ -30,6 +30,7 @@ let pokemonCount = 0;
 let pokemonArray = [];
 
 //Pokemon info
+const pokemonStats = document.querySelector('.pokemon-stats');
 const pokemonName = document.getElementById('name');
 const pokemonImage = document.getElementById('image');
 
@@ -85,7 +86,7 @@ function chart(){
 
     const myChart = document.getElementById('myChart').getContext('2d');
     const firstChart = new Chart(myChart, {
-        type: 'radar',
+        type: 'bar',
         data: {
             title: 'Stats',
             labels: chartLabels,
@@ -120,7 +121,7 @@ function pokemonSelectFunc(id){
         headers: {"Accept": "application/json"}
     })
     .done(function (data) {
-        
+        pokemonStats.style.display = "block";
         //ChartData
         setChartColor(data["types"][0]["type"]["name"])
         chartLabels = [];
