@@ -3,7 +3,8 @@
 :root{
   --allShadow: 0px 6px 15px 0px rgba(255, 255, 255, 0.57);
   --typeColor: rgb(255, 255, 89);
-  --secondTypeColor: rgb(255, 255, 89);
+  --allShadowTwo: 0px 6px 15px 0px rgba(255, 255, 255, 0.57);
+  --typeColorTwo: rgb(255, 255, 89);
 }
 
 /*FROM GIT*/
@@ -210,22 +211,23 @@ button{
     color: red;
   }
 
-.pokemon-title{
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 4rem;
-  margin-bottom: 100px;
-  border-bottom-style: solid;
-  border-color: var(--typeColor);
-}
+  .pokemon-title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 4rem;
+    margin-bottom: 100px;
+    border-bottom: 6px solid;
+    border-image-source: linear-gradient(45deg,var(--typeColor), var(--typeColorTwo));
+    border-image-slice: 1;
+  }
 
 .pokemon-graph{
   float: left;
 }
 
-.pokemon-graphtwo{
+.pokemon-graphTwo{
   float:right;
 }
 
@@ -248,7 +250,7 @@ button{
   background-color: rgba(0, 0, 0, 0.349);
 }
 
-.pokemon-statstwo{
+.pokemon-statsTwo{
   margin-left: 30rem;
   margin-bottom: 2rem;
   border-style: solid;
@@ -258,7 +260,7 @@ button{
   width: 20rem;
   padding: 4%;
   border-radius: 10px;
-  box-shadow: var(--allShadow);
+  box-shadow: var(--allShadowTwo);
   background-color: rgba(0, 0, 0, 0.349);
 }
   
@@ -460,9 +462,9 @@ button{
     opacity: 0.5;
 }
 
-.dropbtntwo { 
-  background-color: var(--typeColor);
-  box-shadow: var(--allShadow);
+.dropbtnTwo { 
+  background-color: var(--typeColorTwo);
+  box-shadow: var(--allShadowTwo);
   float: left;
   color: white;
   padding: 5px;
@@ -479,7 +481,7 @@ button{
   border-radius: 10px;
 }
 
-.dropbtntwo:hover, .dropbtntwo:focus {
+.dropbtnTwo:hover, .dropbtnTwo:focus {
   opacity: 0.5;
 }
   
@@ -491,7 +493,7 @@ button{
   margin-bottom: 200px;
 }
 
-.pokemon-dropdowntwo{
+.pokemon-dropdownTwo{
   width: 38.8em;
   border-radius: 10px;
   position: relative;
@@ -513,14 +515,14 @@ button{
   border-radius: 5px;
 }
 
-.dropdown-contenttwo{
+.dropdown-contentTwo{
   display: none;
   list-style: none;
   position: absolute;
   background-color: #2c3e50;
   min-width: 500px;
   overflow: auto;
-  box-shadow: var(--allShadow);
+  box-shadow: var(--allShadowTwo);
   z-index: 1;
   height: 500px;
   margin-left: -105px;
@@ -537,7 +539,7 @@ button{
   padding: 10px;
 }
 
-.dropdown-contenttwo a{
+.dropdown-contentTwo a{
   color: white;
   padding: 7px 20px;
   text-decoration: none;
@@ -549,9 +551,13 @@ button{
   
 .pokemon-dropdown a:hover {background-color: rgba(43, 51, 59, 0.8)}
  
-.pokemon-dropdowntwo a:hover {background-color: rgba(43, 51, 59, 0.8)}
+.pokemon-dropdownTwo a:hover {background-color: rgba(43, 51, 59, 0.8)}
 
 .show {
+  display: flex;
+  flex-direction: row;
+}
+.showTwo {
   display: flex;
   flex-direction: row;
 }
@@ -567,13 +573,13 @@ button{
   width: 50rem !important;
 }
 
-.chartContainertwo {
+.chartContainerTwo {
   float: right;
   background-color: rgba(0, 0, 0, 0.349);
   border-radius: 10px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: var(--allShadow);
+  box-shadow: var(--allShadowTwo);
   border-width: 3px;
   height: 25rem !important;
   width: 50rem !important;
