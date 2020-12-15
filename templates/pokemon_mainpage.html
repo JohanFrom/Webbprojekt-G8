@@ -14,7 +14,7 @@
     <div class="container">
         <div class="navbar">
           <div class="menu">
-            <h3 class="logo">Game<span style="color: yellow;">Charter</span></h3>
+            <h3 class="logo"><a class="indexlink" href="/templates/index.html">Game<span style="color: yellow;">Charter</span></a></h3>
             <div class="hamburger-menu">
               <div class="bar"></div>
             </div>
@@ -26,16 +26,23 @@
             <header>
               <div class="overlay">
                 <div class="inner">
+                  <img src="/static/pokelogo.png" alt="Avatar" style="width:20%; height:20%;">
                   <h2 class="pokemon-title">pokemon database</h2>
                   <div class="pokemon-dropdown">
+                    
                     <button onclick="pokemonDropdown()" class="dropbtn">POKEMON LIST</button>
                     <div id="pokemon-content-list" class="dropdown-content">
                         <p id="pokemonList"></p>
                     </div>
+
+                    <button onclick="pokemonDropdown()" class="dropbtntwo">POKEMON LIST 2</button>
+                    <div id="pokemon-content-listtwo" class="dropdown-contenttwo">
+                        <p id="pokemonListtwo"></p>
+                    </div>
                 </div>
 
                   <section class="pokemon-graph">
-                      <div class="pokemon-stats" style="display:none;">
+                      <div class="pokemon-stats">
                         <h1 class="title" id="name"></h1>
                         <span id="image">
               
@@ -45,8 +52,6 @@
                         <p id="atack3"></p>
                         <p id="atack4"></p>
                       </div>
-                    
-                    
 
                     <div class="chartContainer">
                         <!-- Graph -->
@@ -54,6 +59,27 @@
                     </div>
 
                   </section>
+
+                  
+
+                  <section class="pokemon-graphtwo">
+                    <div class="pokemon-statstwo">
+                      <h1 class="titletwo" id="nametwo"></h1>
+                      <span id="imagetwo">
+            
+                      </span>
+                      <p id="atack1two"></p>
+                      <p id="atack2two"></p>
+                      <p id="atack3two"></p>
+                      <p id="atack4two"></p>
+                    </div>
+                
+                  <div class="chartContainertwo">
+                      <!-- Graph -->
+                      
+                  </div>
+
+                </section>
                   
                 </div>
               </div>

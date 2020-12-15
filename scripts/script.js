@@ -39,6 +39,9 @@ let chartLabels = [];
 let statsName = 'Stats';
 let chartColor = '';
 
+//CSS variables
+var root = document.querySelector(':root')
+
 //Load Pokemons to Graph        
 $(document).ready(function () { 
     $.ajax({
@@ -166,10 +169,10 @@ function setChartColor(type){
         chartColor = 'rgba(215, 85, 20, 0.54)';
         chart();
     } else if (type === 'grass'){
-        chartColor = 'rgba(20, 215, 23, 0.54)';
+        chartColor = 'rgba(20, 255, 23, 0.54)';
         chart();
     } else if (type === 'water'){
-        chartColor = 'rgba(20, 195, 215, 0.54)';
+        chartColor = 'rgba(20, 155, 215, 0.54)';
         chart();
     } else if (type === 'bug'){
         chartColor = 'rgba(150, 215, 20, 0.54)';
@@ -211,6 +214,9 @@ function setChartColor(type){
         chartColor = 'rgba(198, 115, 83, 0.54)';
         chart();
     }
-    dropDownShadow.style.boxShadow = '0px 6px 15px 0px ' + chartColor;
-    pokemonStats.style.boxShadow = '0px 6px 15px 0px ' + chartColor;
+
+    
+    
+    root.style.setProperty('--allShadow', '0px 6px 15px 0px ' + chartColor);
+    root.style.setProperty('--typeColor', chartColor);
 }

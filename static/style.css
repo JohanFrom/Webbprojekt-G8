@@ -1,26 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 
+:root{
+  --allShadow: 0px 6px 15px 0px rgba(255, 255, 255, 0.57);
+  --typeColor: rgb(255, 255, 89);
+  --secondTypeColor: rgb(255, 255, 89);
+}
+
 /*FROM GIT*/
 *{
+ 
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-  
+
+body{
+  height: 200rem;
+}
+
+.main-container{
+  height: 200rem;
+}
+
 body,
 button{
   font-family: "Roboto", sans-serif;
 }
 
 .container{
-  min-height: 80vh;
+  height: 200rem;
   width: 100%;
   
-  background: #2c3e50;
+  background: rgb(68, 68, 68);
   overflow-x: hidden;
   transform-style: preserve-3d;
 }
-  
+
+.indexlink{
+  text-decoration: none;
+  color: white;
+}
+
 .navbar{
   position: fixed;
   top: 0;
@@ -28,8 +48,13 @@ button{
   width: 100%;
   z-index: 10;
   height: 3rem;
+  border-bottom: white;
+  padding-bottom: 4em;
+  border-style: solid;
+  border-width: 1px;
 }
-  
+
+
 .menu{
   max-width: 72rem;
   width: 100%;
@@ -101,7 +126,7 @@ button{
   }
   
   header {
-    min-height: 100vh;
+    min-height: 100rem;
     width: 100%;
     /*background: url("bg.jpg") no-repeat top center / cover;*/
     position: relative;
@@ -113,22 +138,24 @@ button{
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(43, 51, 59, 0.8);
+    background-color: rgba(0, 0, 0, 0.657);
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
 .inner{
-  max-width: 100%;
   text-align: center;
-  color: #fff;
-  padding: 0 2rem;
+  color: white;
+  padding: 2rem;
   max-height: 90%;
 }
 
 #description{
-  margin: 50px;
+  margin: 20px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  padding-bottom: 5em;
 }
 
 .frontCards{
@@ -139,7 +166,7 @@ button{
 }
 
 .frontCards a{
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -172,7 +199,7 @@ button{
   
   .index-title {
     font-size: 2.7rem;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
     border-bottom-style: solid;
     border-color: red;
     padding: 20px;
@@ -191,13 +218,15 @@ button{
   line-height: 4rem;
   margin-bottom: 100px;
   border-bottom-style: solid;
-  border-color: yellow;
+  border-color: var(--typeColor);
 }
 
 .pokemon-graph{
-  margin-right: 11rem;
-  display: flex;
-  flex-direction: row;
+  float: left;
+}
+
+.pokemon-graphtwo{
+  float:right;
 }
 
 .pokemon-graph > .container{
@@ -207,20 +236,35 @@ button{
 
 .pokemon-stats{
   margin-right: 10rem;
+  margin-bottom: 2rem;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
   border-width: 3px;
-  height: 20rem;
-  padding: 2%;
+  height: 25rem;
+  width: 20rem;
+  padding: 4%;
   border-radius: 10px;
-  box-shadow: 0px 6px 15px 0px rgba(255, 255, 255, 0.57);
-  background-color: #2c3e50;
+  box-shadow: var(--allShadow);
+  background-color: rgba(0, 0, 0, 0.349);
+}
+
+.pokemon-statstwo{
+  margin-left: 30rem;
+  margin-bottom: 2rem;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4);
+  border-width: 3px;
+  height: 25rem;
+  width: 20rem;
+  padding: 4%;
+  border-radius: 10px;
+  box-shadow: var(--allShadow);
+  background-color: rgba(0, 0, 0, 0.349);
 }
   
   .btn {
     margin-top: 1rem;
-    padding: 0.6rem 1.8rem;
-    background-color: rgba(255, 0, 0, 0.4);
+    padding: 0.6rem 1.8rem;;
     border: none;
     border-radius: 25px;
     color: #fff;
@@ -230,7 +274,7 @@ button{
   }
 
   .btn:hover{
-    background-color:  rgba(255, 0, 0, 0.7);
+    opacity: 0.5;
   }
   
   .container.active .bar {
@@ -326,7 +370,7 @@ button{
   .shadow {
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100rem;
     top: 0;
     left: 0;
     transform-style: preserve-3d;
@@ -393,24 +437,63 @@ button{
 
 
   .dropbtn { 
-    background-color: #2c3e50;
+    background-color: var(--typeColor);
+    box-shadow: var(--allShadow);
+    margin-right: 1em;
+    float: left;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 1000;
     border: none;
     cursor: pointer;
+    width: 15em;
+    height: 5em;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.561);
+    border-radius: 10px;
+    border-width: 3px; 
+    border-radius: 10px;
 }
   
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    opacity: 0.5;
+}
+
+.dropbtntwo { 
+  background-color: var(--typeColor);
+  box-shadow: var(--allShadow);
+  float: left;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 1000;
+  border: none;
+  cursor: pointer;
+  width: 15em;
+  height: 5em;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.561);
+  border-radius: 10px;
+  border-width: 3px; 
+  border-radius: 10px;
+}
+
+.dropbtntwo:hover, .dropbtntwo:focus {
+  opacity: 0.5;
 }
   
 .pokemon-dropdown{
-  border-style: solid;
-  border-color: white;
-  border-radius: 5px;
-  border-width: 2px; 
-  box-shadow: 0px 1px 7px 0px rgba(255, 255, 255, 0.4);
+  width: 38.8em;
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 200px;
+}
+
+.pokemon-dropdowntwo{
+  width: 38.8em;
+  border-radius: 10px;
   position: relative;
   display: inline-block;
   margin-bottom: 200px;
@@ -423,10 +506,24 @@ button{
   background-color: #2c3e50;
   min-width: 500px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: var(--allShadow);
   z-index: 1;
   height: 500px;
-  margin-left: -165px;
+  margin-left: -105px;
+  border-radius: 5px;
+}
+
+.dropdown-contenttwo{
+  display: none;
+  list-style: none;
+  position: absolute;
+  background-color: #2c3e50;
+  min-width: 500px;
+  overflow: auto;
+  box-shadow: var(--allShadow);
+  z-index: 1;
+  height: 500px;
+  margin-left: -105px;
   border-radius: 5px;
 }
   
@@ -439,16 +536,46 @@ button{
   width: 33.33%;
   padding: 10px;
 }
+
+.dropdown-contenttwo a{
+  color: white;
+  padding: 7px 20px;
+  text-decoration: none;
+  display: block;
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
   
 .pokemon-dropdown a:hover {background-color: rgba(43, 51, 59, 0.8)}
-  
+ 
+.pokemon-dropdowntwo a:hover {background-color: rgba(43, 51, 59, 0.8)}
+
 .show {
   display: flex;
   flex-direction: row;
 }
 
 .chartContainer {
-  height: 30rem !important;
+  background-color: rgba(0, 0, 0, 0.349);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--allShadow);
+  border-width: 3px;
+  height: 25rem !important;
+  width: 50rem !important;
+}
+
+.chartContainertwo {
+  float: right;
+  background-color: rgba(0, 0, 0, 0.349);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--allShadow);
+  border-width: 3px;
+  height: 25rem !important;
   width: 50rem !important;
 }
 
