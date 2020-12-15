@@ -19,9 +19,8 @@
       }
 
     //POKEMON INFO CARD
-    
 
-
+const dropDownShadow = document.querySelector('.pokemon-dropdown');
 //is-active
 const dropDown = document.querySelector('#gameSelector');
 let dropCount = 0;
@@ -49,7 +48,7 @@ $(document).ready(function () {
     .done(function (data) { 
         for(i = 0; i < data['results'].length; i++){
             pokemonArray.push(data['results'][i]);
-            document.getElementById('pokemonList').innerHTML += '<a href="#" class="dropdown-item" id="' + i + '" onclick="pokemonSelectFunc(this.id)">' + data['results'][i]['name'] + '</a>';
+            document.getElementById('pokemonList').innerHTML += '<a href="#" class="dropdown-item" id="' + i + '" onclick="pokemonSelectFunc(this.id)">' + capitalizeFirstLetter(data['results'][i]['name']) + '</a>';
         }
     });       
 });
@@ -88,26 +87,32 @@ function chart(){
     const firstChart = new Chart(myChart, {
         type: 'bar',
         data: {
-            title: 'Stats',
+            //title: 'Stats',
             labels: chartLabels,
             datasets: [{
                 label: statsName,
+                labelColor: 'White',
                 data: chartContent,
                 backgroundColor: chartColor,
                 hoverBorderWidth: 2,
                 
                 hoverBorderColor: "black"
-            }]
+            }],
+            color: 'White'
         },
         options: {
             scales: {
                 yAxes: [{
                     ticks: {
                         suggestedMin: 0,
-                        suggestedMax: 180
-                    }
-                }]
-            }
+                        suggestedMax: 180,
+                        fontColor: 'White',
+                    },
+                    
+                    
+                }],
+
+            },
         }
     });
 }
@@ -127,7 +132,7 @@ function pokemonSelectFunc(id){
         chartLabels = [];
         chartContent = [];
         for(let c = 0; c < 5; c++){
-            chartLabels.push(data["stats"][c]["stat"]["name"]);
+            chartLabels.push(capitalizeFirstLetter(data["stats"][c]["stat"]["name"]));
             chartContent.push(data["stats"][c]["base_stat"]);
         }
 
@@ -206,4 +211,6 @@ function setChartColor(type){
         chartColor = 'rgba(198, 115, 83, 0.54)';
         chart();
     }
+    dropDownShadow.style.boxShadow = '0px 6px 15px 0px ' + chartColor;
+    pokemonStats.style.boxShadow = '0px 6px 15px 0px ' + chartColor;
 }
