@@ -394,17 +394,17 @@ button{
   flex-direction: row;
 }
 
-.container > #myChart{
+.chartContainer {
   height: 30rem !important;
   width: 50rem !important;
 }
 
-.container > footer{
+.chartContainer > footer{
   margin-right: 300px;
   margin-top: 50px;
 }
 
-.container > footer > p{
+.chartContainer > footer > p{
   font-family: "Roboto";
   font-weight: 400;
   color: #eee;

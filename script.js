@@ -81,7 +81,7 @@ pokemonSelect.addEventListener('click', () => {
 //Handle Chart logic
 function chart(){
     //RÖR INTE DENNA 
-    $('#chart').html('<canvas id="myChart"></canvas>');
+    $('.chartContainer').html('<canvas id="myChart"></canvas>');
 
 
     const myChart = document.getElementById('myChart').getContext('2d');
