@@ -42,7 +42,7 @@ button{
 }
   
   .logo {
-    font-size: 1.1rem;
+    font-size: 2.1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -50,7 +50,7 @@ button{
   }
   
   .logo span {
-    font-weight: 300;
+    font-weight: 500;
   }
   
   .hamburger-menu {
@@ -127,6 +127,37 @@ button{
   max-height: 90%;
 }
 
+#description{
+  margin: 50px;
+}
+
+.frontCards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100em;
+}
+
+.frontCards a{
+  color: white;
+  text-decoration: none;
+}
+
+.cardPoke{
+  margin: auto;
+  padding: 5em;
+}
+
+.cardLol{
+  margin: auto;
+  padding: 5em;
+}
+
+.cardDota{
+  margin: auto;
+  padding: 5em;
+}
+
   .pokemon-info{
       display: flex;
       justify-content: center;
@@ -134,9 +165,22 @@ button{
       text-align: center;
       padding: 0 2rem;
   }
-  
-  .title {
+
+  .title{
     font-size: 2.7rem;
+  }
+  
+  .index-title {
+    font-size: 2.7rem;
+    margin-bottom: 200px;
+    border-bottom-style: solid;
+    border-color: red;
+    padding: 20px;
+  }
+
+  .index-title span{
+    font-weight: 600;
+    color: red;
   }
 
 .pokemon-title{
@@ -145,6 +189,9 @@ button{
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 4rem;
+  margin-bottom: 100px;
+  border-bottom-style: solid;
+  border-color: yellow;
 }
 
 .pokemon-graph{
@@ -173,13 +220,17 @@ button{
   .btn {
     margin-top: 1rem;
     padding: 0.6rem 1.8rem;
-    background-color: #1179e7;
+    background-color: rgba(255, 0, 0, 0.4);
     border: none;
     border-radius: 25px;
     color: #fff;
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
+  }
+
+  .btn:hover{
+    background-color:  rgba(255, 0, 0, 0.7);
   }
   
   .container.active .bar {
@@ -362,6 +413,7 @@ button{
   box-shadow: 0px 1px 7px 0px rgba(255, 255, 255, 0.4);
   position: relative;
   display: inline-block;
+  margin-bottom: 200px;
 }
   
 .dropdown-content{

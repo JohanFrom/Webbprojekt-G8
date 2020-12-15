@@ -14,7 +14,7 @@
     <div class="container">
         <div class="navbar">
           <div class="menu">
-            <h3 class="logo">Game<span>Charter</span></h3>
+            <h3 class="logo">Game<span style="color: red;">Charter</span></h3>
             <div class="hamburger-menu">
               <div class="bar"></div>
             </div>
@@ -26,12 +26,39 @@
             <header>
               <div class="overlay">
                 <div class="inner">
-                  <h2 class="title">Welcome to GameCharter</h2>
-                  <p>
+                  <h2 class="index-title">Welcome to Game<span>Charter</span></h2>
+                  <p id="description">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Laudantium illum tenetur consequatur veritatis?
                   </p>
-                  <button class="btn">VIDARE</button>
+
+                  <div class="frontCards">
+                    <div class="cardPoke">
+                      <img src="/static/pokelogo.png" alt="Avatar" style="width:50%; height:50%;">
+                      <div class="card-container">
+                        <h4 class="indexCard">Pokémon</h4> 
+                        <button class="btn"><a href="pokemon_mainpage.html">Click here for Pokémon statistics</a></button> 
+                      </div>
+                    </div>
+
+                    <div class="cardLol">
+                      <img src="/static/leaguelogo.png" alt="Avatar" style="width:50%; height:50%;">
+                      <div class="card-container">
+                        <h4 class="indexCard">League of Legends</h4> 
+                        <button class="btn"><a href="#">Click here for League of Legends statistics</a></button> 
+                      </div>
+                    </div>
+
+                    <div class="cardDota">
+                      <img src="/static/dotalogo.png" alt="Avatar" style="width:50%; height:50%;">
+                      <div class="card-container">
+                        <h4 class="indexCard">Dota 2</h4> 
+                        <button class="btn"><a href="#">Click here for Dota 2 statistics</a></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  
                 </div>
               </div>
             </header>
@@ -53,10 +80,13 @@
               <a href="#" style="--i: 0.15s;">leauge of legends</a>
             </li>
             <li>
-              <a href="#" style="--i: 0.2s;">api-doc</a>
+              <a href="#" style="--i: 0.2s;">dot</a>
             </li>
             <li>
               <a href="#" style="--i: 0.25s;">About us</a>
+            </li>
+            <li>
+              <a href="#" style="--i: 0.2s;">api-doc</a>
             </li>
           </ul>
         </div>
