@@ -3,13 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mashup-tjänst</title>
+
+    <link rel="stylesheet" href="/static/hej.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>GameCharter</title>
 </head>
 <body>
-    <h1>Mash-Up</h1>
-    <div id="login">
-        <p>här är inlogg via OAuth</p>
-        <a href="service.html">När inloggad</a>
-    </div>
+    <div class="container">
+        <div class="navbar">
+          <div class="menu">
+            <h3 class="logo">Game<span>Charter</span></h3>
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="main-container">
+          <div class="main">
+            <header>
+              <div class="overlay">
+                <div class="inner">
+                  <h2 class="title">Welcome to GameCharter</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Laudantium illum tenetur consequatur veritatis?
+                  </p>
+                  <button class="btn">VIDARE</button>
+                </div>
+              </div>
+            </header>
+          </div>
+  
+          <div class="shadow one"></div>
+          <div class="shadow two"></div>
+        </div>
+  
+        <div class="links">
+          <ul>
+            <li>
+              <a href="testis.html" style="--i: 0.05s;">home</a>
+            </li>
+            <li>
+              <a href="pokemon_mainpage.html" style="--i: 0.1s;">pokémon</a>
+            </li>
+            <li>
+              <a href="#" style="--i: 0.15s;">leauge of legends</a>
+            </li>
+            <li>
+              <a href="#" style="--i: 0.2s;">api-doc</a>
+            </li>
+            <li>
+              <a href="#" style="--i: 0.25s;">About us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <script src="hamburgerscript.js"></script>
 </body>
 </html>
