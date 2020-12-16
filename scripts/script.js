@@ -224,105 +224,111 @@ function setChartColor(type, nr){
     console.log(type);
     if(nr === 1){
         if(type === 'fire'){
-            chartColor = 'rgba(215, 85, 20, 0.54)';
+            chartColor = 'rgba(255, 90, 0, 0.7)';
             chart();
         } else if (type === 'grass'){
-            chartColor = 'rgba(20, 255, 23, 0.54)';
+            chartColor = 'rgba(0, 186, 0, 0.7)';
             chart();
         } else if (type === 'water'){
-            chartColor = 'rgba(20, 155, 215, 0.54)';
+            chartColor = 'rgba(0, 168, 224, 0.7)';
             chart();
         } else if (type === 'bug'){
-            chartColor = 'rgba(150, 215, 20, 0.54)';
+            chartColor = 'rgba(177, 207, 0, 0.7)';
             chart();
         } else if (type === 'normal'){
-            chartColor = 'rgba(119, 123, 111, 0.54)';
+            chartColor = 'rgba(243, 245, 246, 0.7)';
             chart();
         } else if (type === 'electric'){
-            chartColor = 'rgba(238, 190, 17, 0.54)';
+            chartColor = 'rgba(255, 245, 0, 0.7)';
             chart();
         } else if (type === 'ground'){
-            chartColor = 'rgba(218, 58, 37, 0.54)';
+            chartColor = 'rgba(255, 192, 0, 0.7)';
             chart();
         } else if (type === 'psychic'){
-            chartColor = 'rgba(203, 37, 218, 0.54)';
+            chartColor = 'rgba(255, 57, 196, 0.7)';
             chart();
         } else if (type === 'ghost'){
-            chartColor = 'rgba(115, 37, 218, 0.54)';
+            chartColor = 'rgba(53, 0, 193, 0.7)';
             chart(); 
         } else if (type === 'fairy'){
-            chartColor = 'rgba(218, 37, 173, 0.54)';
+            chartColor = 'rgba(255, 126, 193, 0.7)';
             chart();
         } else if (type === 'dragon'){
-            chartColor = 'rgba(37, 55, 218, 0.54)';
+            chartColor = 'rgba(0, 0, 255, 0.7)';
             chart();
-        } else if (type === 'steal'){
-            chartColor = 'rgba(153, 153, 153, 0.54)';
+        } else if (type === 'steel'){
+            chartColor = 'rgba(180, 180, 180, 0.7)';
             chart();
         } else if (type === 'ice'){
-            chartColor = 'rgba(117, 178, 189, 0.54)';
+            chartColor = 'rgba(0, 255, 255, 0.7)';
             chart();
         } else if (type === 'poison'){
-            chartColor = 'rgba(130, 95, 211, 0.54)';
+            chartColor = 'rgba(136, 0, 135, 0.7)';
             chart();
         } else if (type === 'flying'){
-            chartColor = 'rgba(95, 153, 211, 0.54)';
+            chartColor = 'rgba(73, 128, 255, 0.7)';
             chart();
         } else if (type === 'fighting'){
-            chartColor = 'rgba(198, 115, 83, 0.54)';
+            chartColor = 'rgba(162, 15, 0, 0.7)';
+            chart();
+        }else if (type === 'rock'){
+            chartColor = 'rgba(162, 113, 0, 0.7)';
             chart();
         }
         root.style.setProperty('--allShadow', '0px 6px 15px 0px ' + chartColor);
         root.style.setProperty('--typeColor', chartColor);
     } else {
         if(type === 'fire'){
-            chartColorTwo = 'rgba(215, 85, 20, 0.54)';
+            chartColorTwo = 'rgba(255, 90, 0, 0.7)';
             chartTwo();
         } else if (type === 'grass'){
-            chartColorTwo = 'rgba(20, 255, 23, 0.54)';
+            chartColorTwo = 'rgba(0, 186, 0, 0.7)';
             chartTwo();
         } else if (type === 'water'){
-            chartColorTwo = 'rgba(20, 155, 215, 0.54)';
+            chartColorTwo = 'rgba(0, 168, 224, 0.7)';
             chartTwo();
         } else if (type === 'bug'){
-            chartColorTwo = 'rgba(150, 215, 20, 0.54)';
+            chartColorTwo = 'rgba(177, 207, 0, 0.7)';
             chartTwo();
         } else if (type === 'normal'){
-            chartColorTwo = 'rgba(119, 123, 111, 0.54)';
+            chartColorTwo = 'rgba(243, 245, 246, 0.7)';
             chartTwo();
         } else if (type === 'electric'){
-            chartColorTwo = 'rgba(238, 190, 17, 0.54)';
+            chartColorTwo = 'rgba(255, 245, 0, 0.7)';
             chartTwo();
         } else if (type === 'ground'){
-            chartColorTwo = 'rgba(218, 58, 37, 0.54)';
+            chartColorTwo = 'rgba(255, 192, 0, 0.7)';
             chartTwo();
         } else if (type === 'psychic'){
-            chartColorTwo = 'rgba(203, 37, 218, 0.54)';
+            chartColorTwo = 'rgba(255, 57, 196, 0.7)';
             chartTwo();
         } else if (type === 'ghost'){
-            chartColorTwo = 'rgba(115, 37, 218, 0.54)';
+            chartColorTwo = 'rgba(53, 0, 193, 0.7)';
             chartTwo();
         } else if (type === 'fairy'){
-            chartColorTwo = 'rgba(218, 37, 173, 0.54)';
+            chartColorTwo = 'rgba(255, 126, 193, 0.7)';
             chartTwo();
         } else if (type === 'dragon'){
-            chartColorTwo = 'rgba(37, 55, 218, 0.54)';
+            chartColorTwo = 'rgba(0, 0, 255, 0.7)';
             chartTwo();
-        } else if (type === 'steal'){
-            chartColorTwo = 'rgba(153, 153, 153, 0.54)';
+        } else if (type === 'steel'){
+            chartColorTwo = 'rgba(180, 180, 180, 0.7)';
             chartTwo();
         } else if (type === 'ice'){
-            chartColorTwo = 'rgba(117, 178, 189, 0.54)';
+            chartColorTwo = 'rgba(0, 255, 255, 0.7)';
             chartTwo();
         } else if (type === 'poison'){
-            chartColorTwo = 'rgba(130, 95, 211, 0.54)';
+            chartColorTwo = 'rgba(136, 0, 135, 0.7)';
             chartTwo();
         } else if (type === 'flying'){
-            chartColorTwo = 'rgba(95, 153, 211, 0.54)';
+            chartColorTwo = 'rgba(73, 128, 255, 0.7)';
             chartTwo();
         } else if (type === 'fighting'){
-            chartColorTwo = 'rgba(198, 115, 83, 0.54)';
+            chartColorTwo = 'rgba(162, 15, 0, 0.7)';
             chartTwo();
+        }else if (type === 'rock'){
+            chartColor = 'rgba(162, 113, 0, 0.7)';
+            chart();
         }
         root.style.setProperty('--allShadowTwo', '0px 6px 15px 0px ' + chartColorTwo);
         root.style.setProperty('--typeColorTwo', chartColorTwo);

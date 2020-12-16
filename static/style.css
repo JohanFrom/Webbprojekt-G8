@@ -353,7 +353,7 @@ button{
   }
   
   .links a:hover {
-    color: #fff;
+    color: rgb(184, 184, 184);
   }
   
   .container.active .links a {
