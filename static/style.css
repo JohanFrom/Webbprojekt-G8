@@ -150,6 +150,8 @@ button{
   color: white;
   padding: 2rem;
   max-height: 90%;
+  background-color: rgba(0, 0, 0, 0.281);
+  border-radius: 10px;
 }
 
 #description{
