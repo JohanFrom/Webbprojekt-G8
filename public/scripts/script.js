@@ -36,7 +36,7 @@
         }
       }
     //POKEMON INFO CARD
-
+const pokemonArray = [];
 
 
 //Pokemon info
