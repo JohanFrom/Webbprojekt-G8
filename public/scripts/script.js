@@ -183,6 +183,13 @@ function pokemonSelectFunc(id, nr){
             //PokemonInfo 
             $('#name').text(capitalizeFirstLetter(pokemonArray[id]['name']));
             $('#image').html('<img src="' + data['sprites']['front_default'] + '">');
+            $('#type').text(data["types"][0]["type"]["name"]);
+            
+            if(data["types"][1]["type"]["name"] !== null){
+                $('#type2').text(data["types"][1]["type"]["name"]);
+            } else { 
+                $('#type2').text('');
+            }
             $('#atack1').text(capitalizeFirstLetter(data['moves'][0]['move']['name']));
             $('#atack2').text(capitalizeFirstLetter(data['moves'][1]['move']['name']));
             $('#atack3').text(capitalizeFirstLetter(data['moves'][2]['move']['name']));
@@ -201,6 +208,8 @@ function pokemonSelectFunc(id, nr){
 
             $('#nameTwo').text(capitalizeFirstLetter(pokemonArray[id]['name']));
             $('#imageTwo').html('<img src="' + data['sprites']['front_default'] + '">');
+            $('#typeTwo').text(data["types"][0]["type"]["name"]);
+            $('#type2Two').text(data["types"][1]["type"]["name"]);
             $('#atack1Two').text(capitalizeFirstLetter(data['moves'][0]['move']['name']));
             $('#atack2Two').text(capitalizeFirstLetter(data['moves'][1]['move']['name']));
             $('#atack3Two').text(capitalizeFirstLetter(data['moves'][2]['move']['name']));
@@ -265,7 +274,7 @@ function setChartColor(type, nr){
         } else if (type === 'fighting'){
             chartColor = 'rgba(162, 15, 0, 0.7)';
             chart();
-        }else if (type === 'rock'){
+        } else if (type === 'rock'){
             chartColor = 'rgba(162, 113, 0, 0.7)';
             chart();
         }
@@ -320,8 +329,8 @@ function setChartColor(type, nr){
         } else if (type === 'fighting'){
             chartColorTwo = 'rgba(162, 15, 0, 0.7)';
             chartTwo();
-        }else if (type === 'rock'){
-            chartColor = 'rgba(162, 113, 0, 0.7)';
+        } else if (type === 'rock'){
+            chartColorTwo = 'rgba(162, 113, 0, 0.7)';
             chart();
         }
         root.style.setProperty('--allShadowTwo', '0px 6px 15px 0px ' + chartColorTwo);
