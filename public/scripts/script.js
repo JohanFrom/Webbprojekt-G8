@@ -198,14 +198,13 @@ function pokemonSelectFunc(id, nr){
             //PokemonInfo 
             $('#name').text(capitalizeFirstLetter(pokemonArray[id]['name']));
             $('#image').html('<img src="' + data['sprites']['front_default'] + '">');
-
-            $('.typeHolder').html('<p class="type" style="background-color: '+ elementColors[data["types"][0]["type"]["name"]] +';">' + data["types"][0]["type"]["name"] + '</p>');
-            if(data["types"][1]["type"]["name"] !== undefined){
+            try {
                 $('.typeHolder').html(
                     '<p class="type" style="background-color: '+ elementColors[data["types"][0]["type"]["name"]] +';">' + data["types"][0]["type"]["name"] + '</p> \n' +
                     '<p class="type" style="background-color: '+ elementColors[data["types"][1]["type"]["name"]] +';">' + data["types"][1]["type"]["name"] + '</p>'
                 );
-
+            } catch(error){
+                $('.typeHolder').html('<p class="type" style="background-color: '+ elementColors[data["types"][0]["type"]["name"]] +';">' + data["types"][0]["type"]["name"] + '</p>');
             }
             $('#atack1').text(capitalizeFirstLetter(data['moves'][0]['move']['name']));
             $('#atack2').text(capitalizeFirstLetter(data['moves'][1]['move']['name']));
@@ -220,15 +219,16 @@ function pokemonSelectFunc(id, nr){
             }
             chartTwo();
             
+            //PokemonInfo 
             $('#nameTwo').text(capitalizeFirstLetter(pokemonArray[id]['name']));
             $('#imageTwo').html('<img src="' + data['sprites']['front_default'] + '">');
-
-            $('.typeHolderTwo').html('<p class="type" style="background-color: '+ elementColors[data["types"][0]["type"]["name"]] +';">' + data["types"][0]["type"]["name"] + '</p>');
-            if(data["types"][1]["type"]["name"] !== undefined){
+            try {
                 $('.typeHolderTwo').html(
                     '<p class="type" style="background-color: '+ elementColors[data["types"][0]["type"]["name"]] +';">' + data["types"][0]["type"]["name"] + '</p> \n' +
                     '<p class="type" style="background-color: '+ elementColors[data["types"][1]["type"]["name"]] +';">' + data["types"][1]["type"]["name"] + '</p>'
                 );
+            } catch(error){
+                $('.typeHolderTwo').html('<p class="type" style="background-color: '+ elementColors[data["types"][0]["type"]["name"]] +';">' + data["types"][0]["type"]["name"] + '</p>');
             }
 
             $('#atack1Two').text(capitalizeFirstLetter(data['moves'][0]['move']['name']));
@@ -246,7 +246,6 @@ function capitalizeFirstLetter(string) {
 
 //Ändrar färg baserat på element av pokemon
 function setChartColor(type, nr){
-    console.log(type);
     if(nr === 1){
         chartColor = elementColors[type];
         chart();
