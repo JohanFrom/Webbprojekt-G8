@@ -250,12 +250,14 @@ button{
 }
 
 .pokemon-stats{
+  display: flex;
+  flex-direction:column;
   margin-right: 10rem;
   margin-bottom: 2rem;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
   border-width: 3px;
-  height: 18rem;
+  height: 22rem;
   width: 20rem;
   padding: 4%;
   border-radius: 10px;
@@ -269,7 +271,7 @@ button{
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
   border-width: 3px;
-  height: 18rem;
+  height: 22rem;
   width: 20rem;
   padding: 4%;
   border-radius: 10px;
@@ -610,3 +612,26 @@ button{
   font-weight: 400;
   color: #eee;
 }
+
+.typeHolder {
+ 
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.typeHolderTwo {
+ 
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.type {
+  width: 80px;
+  /*padding: 7px;*/
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 4px;
+}
+
