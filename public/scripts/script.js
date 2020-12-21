@@ -83,7 +83,7 @@ const elementColors = {
 //Load Pokemons to lists        
 $(document).ready(function () { 
     $.ajax({
-        url: "https://pokeapi.co/api/v2/pokemon?limit=151",
+        url: "https://pokeapi.co/api/v2/pokemon?limit=386",
         headers: {"Accept": "application/json"} 
     })
     .done(function (data) { 
