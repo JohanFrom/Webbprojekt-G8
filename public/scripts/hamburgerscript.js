@@ -53,14 +53,14 @@ document.getElementById("pokemon-content-listTwo").onclick = function(event) {
 
 //LOL DROPDOWN
 // LEAUGE OF LEGENDS DROPDOWN - REGIONDROPDOWN
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+function regionDropdown() {
+  document.getElementById("region-content-list").classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+  if (!event.target.matches('.region-dropbtn')) {
+    var dropdowns = document.getElementsByClassName("region-dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];

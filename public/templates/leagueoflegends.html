@@ -29,13 +29,17 @@
               <img src="/static/leaguelogo.png" alt="Pokéball" style="width:20%; height:20%;">
               <h2 class="lol-title">leauge of legends summoner database</h2>
 
-              <div class="pokemon-dropdown">
-                <input type="text" id="summonerid" class="gamertag" placeholder="riot-gametag">
+              <div class="region-dropdown">
+                <input type="text" id="summonerid" class="gamertag" placeholder="         riot-gametag">
 
                 <!-- PokemonSelectorTwo -->
-                <button onclick="pokemonDropdown()" class="lol-dropbtn">REGION</button>
-                <div id="pokemon-content-list" class="dropdown-content">
-                    <p id="pokemonList"></p>
+                <button onclick="regionDropdown()" class="region-dropbtn">REGION</button>
+                <div id="region-content-list" class="region-dropdown-content">
+                    <p id="region">Europe Nordic & East, EUNE (EUN1)</p>
+                    <p id="region">Europe West, EUW (EUW1)</p>
+                    <p id="region">MAINTENENCE</p>
+                    <p id="region">MAINTENENCE</p>
+                    <p id="region">MAINTENENCE</p>
                 </div>
 
                 <button id="accept-info">ACCEPT</button>
@@ -108,6 +112,9 @@
         </li>
         <li>
           <a href="leagueoflegends.html" style="--i: 0.15s;">leauge of legends</a>
+        </li>
+        <li>
+          <a href="#" style="--i: 0.2s;">dota 2</a>
         </li>
         <li>
           <a href="#" style="--i: 0.2s;">api-doc</a>
