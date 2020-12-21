@@ -1,41 +1,6 @@
 //HTML 
-    //DROPDOWN
-    function pokemonDropdown() {
-        document.getElementById("pokemon-content-list").classList.toggle("show");
-      }
-      
-      // Close the dropdown if the user clicks outside of it
-      document.getElementById("pokemon-content-list").onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
-        }
-      }
 
-      function pokemonDropdownTwo() {
-        document.getElementById("pokemon-content-listTwo").classList.toggle("showTwo");
-      }
-      
-      // Close the dropdown if the user clicks outside of it
-      document.getElementById("pokemon-content-listTwo").onclick = function(event) {
-        if (!event.target.matches('.dropbtnTwo')) {
-          var dropdowns = document.getElementsByClassName("dropdown-contentTwo");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('showTwo')) {
-              openDropdown.classList.remove('showTwo');
-            }
-          }
-        }
-      }
-    //POKEMON INFO CARD
+//POKEMON INFO CARD
 const pokemonArray = [];
 
 
