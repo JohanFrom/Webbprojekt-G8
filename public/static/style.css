@@ -197,7 +197,10 @@ button{
   }
 
   .title{
-    font-size: 2.7rem;
+    font-size: 1.7rem;
+  }
+  .titleTwo{
+    font-size: 1.7rem;
   }
   
   .index-title {

@@ -2,7 +2,8 @@
     //DROPDOWN
     function pokemonDropdown() {
         document.getElementById("pokemon-content-list").classList.toggle("show");
-      }
+        document.querySelector('.dropbtnTwo').disabled = false;
+    }
       
       // Close the dropdown if the user clicks outside of it
       document.getElementById("pokemon-content-list").onclick = function(event) {
@@ -35,14 +36,29 @@
           }
         }
       }
-    //POKEMON INFO CARD
+//POKEMON INFO CARD
 const pokemonArray = [];
+
+//Selected Pokewmons
+let selectedPokemons = [];
 
 
 //Pokemon info
 const pokemonStats = document.querySelector('.pokemon-stats');
 const pokemonName = document.getElementById('name');
 const pokemonImage = document.getElementById('image');
+let pokemonOneType = "";
+let pokemonTwoType = "";
+
+//PokemonOne fight stats
+let PokemonOneDoubleDmg = false;
+let PokemonOneImmune = false;
+let PokemonOneStats = [];
+
+//PokemonTwo fight stats
+let PokemonTwoDoubleDmg = false;
+let PokemonTwoImmune = false;
+let PokemonTwoStats = [];
 
 //ChartOne
 let chartContent = [];
@@ -58,6 +74,9 @@ let chartColorTwo = '';
 
 //CSS variables
 const root = document.querySelector(':root')
+
+//Switch
+let switcher = false;
 
 //ElementColors
 const elementColors = {
@@ -83,7 +102,7 @@ const elementColors = {
 //Load Pokemons to lists        
 $(document).ready(function () { 
     $.ajax({
-        url: "https://pokeapi.co/api/v2/pokemon?limit=151",
+        url: "https://pokeapi.co/api/v2/pokemon?limit=386",
         headers: {"Accept": "application/json"} 
     })
     .done(function (data) { 
@@ -177,22 +196,23 @@ function chartTwo(){
 function pokemonSelectFunc(id, nr){
     const details = pokemonArray[id]['url'];
     
-    console.log(pokemonArray[0]['url'])
     $.ajax({
         url: details,
-        headers: {"Accept": "application/json"}
+        headers: { }
     })
     .done(function (data) {
         pokemonStats.style.display = "block";
         //ChartData
         setChartColor(data["types"][0]["type"]["name"], nr)
         if(nr === 1){
+            selectedPokemons[0] = data;
             chartLabels = [];
             chartContent = [];
             for(let c = 0; c < 5; c++){
                 chartLabels.push(capitalizeFirstLetter(data["stats"][c]["stat"]["name"]));
                 chartContent.push(data["stats"][c]["base_stat"]);
             }
+            PokemonOneStats = chartContent;
             chart();
             
             //PokemonInfo 
@@ -210,13 +230,20 @@ function pokemonSelectFunc(id, nr){
             $('#atack2').text(capitalizeFirstLetter(data['moves'][1]['move']['name']));
             $('#atack3').text(capitalizeFirstLetter(data['moves'][2]['move']['name']));
             $('#atack4').text(capitalizeFirstLetter(data['moves'][3]['move']['name']));
+
+            if(switcher){
+                fight();
+            }
         }else{
+            switcher = true;
+            selectedPokemons[1] = data;
             chartLabelsTwo = [];
             chartContentTwo = [];
             for(let c = 0; c < 5; c++){
                 chartLabelsTwo.push(capitalizeFirstLetter(data["stats"][c]["stat"]["name"]));
-                chartContentTwo.push(data["stats"][c]["base_stat"]);
+                chartContentTwo.push(data["stats"][c]["base_stat"]); 
             }
+            PokemonTwoStats = chartContentTwo;
             chartTwo();
             
             //PokemonInfo 
@@ -234,6 +261,8 @@ function pokemonSelectFunc(id, nr){
             $('#atack2Two').text(capitalizeFirstLetter(data['moves'][1]['move']['name']));
             $('#atack3Two').text(capitalizeFirstLetter(data['moves'][2]['move']['name']));
             $('#atack4Two').text(capitalizeFirstLetter(data['moves'][3]['move']['name']));
+
+            fight();
         } 
     });
 }
@@ -246,14 +275,91 @@ function capitalizeFirstLetter(string) {
 //Ändrar färg baserat på element av pokemon
 function setChartColor(type, nr){
     if(nr === 1){
+        pokemonOneType = type;
         chartColor = elementColors[type];
         chart();
         root.style.setProperty('--allShadow', '0px 6px 15px 0px ' + chartColor);
         root.style.setProperty('--typeColor', chartColor);
     } else {
+        pokemonTwoType = type;
         chartColorTwo = elementColors[type];
         chartTwo();
         root.style.setProperty('--allShadowTwo', '0px 6px 15px 0px ' + chartColorTwo);
         root.style.setProperty('--typeColorTwo', chartColorTwo);
     }
+}
+
+function fight(){
+    typeRequest(selectedPokemons[0]["types"][0]["type"]["url"],selectedPokemons[1]["types"][0]["type"]["url"]);
+}
+
+
+function typeRequest(urlOne, urlTwo){
+    let infoOne = {};
+    let infoTwo = {};
+
+    $.ajax({
+        url: urlOne,
+        headers: {"Accept": "application/json"} 
+    })
+    .done(function (data) {
+        infoOne = data;
+        $.ajax({
+            url: urlTwo,
+            headers: {"Accept": "application/json"} 
+        })
+        .done(function (data) { 
+            infoTwo = data;  
+
+            for(i = 0; i < infoOne["damage_relations"]["double_damage_to"].length; i++){
+                if(infoOne["damage_relations"]["double_damage_from"][i] === pokemonTwoType){
+                    PokemonOneDoubleDmg = true;
+                }else{
+                    PokemonOneDoubleDmg = false;
+                }
+            }
+            for(i = 0; i < infoTwo["damage_relations"]["double_damage_to"].length; i++){
+                if(infoTwo["damage_relations"]["double_damage_from"][i] === pokemonOneType){
+                    PokemonTwoDoubleDmg = true;
+                }else{
+                    PokemonTwoDoubleDmg = false;
+                }
+            }
+            for(i = 0; i < infoOne["damage_relations"]["no_damage_to"].length; i++){
+                if(infoOne["damage_relations"]["no_damage_to"][i] === pokemonTwoType){
+                    PokemonTwoImmune = true;
+                }else{
+                    PokemonTwoImmune = false;
+                }
+            }
+            for(i = 0; i < infoTwo["damage_relations"]["no_damage_to"].length; i++){
+                if(infoTwo["damage_relations"]["no_damage_to"][i] === pokemonOneType){
+                    PokemonOneImmune = true;
+                }else{
+                    PokemonOneImmune = false;
+                }
+            }
+            let pkmOneDmg;
+            let pkmTwoDmg;
+
+            if(PokemonOneDoubleDmg){
+                pkmOneDmg = ((PokemonOneStats[1]*2) - (PokemonTwoStats[0] + PokemonTwoStats[2]))
+            }else{
+                pkmOneDmg = ((PokemonOneStats[1]) - (PokemonTwoStats[0] + PokemonTwoStats[2]))
+            }
+            
+
+            if(PokemonOneDoubleDmg){
+                pkmTwoDmg = ((PokemonTwoStats[1]*2) - (PokemonOneStats[0] + PokemonOneStats[2]))
+            }else{
+                pkmTwoDmg = ((PokemonTwoStats[1]) - (PokemonOneStats[0] + PokemonOneStats[2]))
+            }
+            
+            if(-pkmOneDmg > -pkmTwoDmg){
+                console.log('Left Pokemon wins');
+            }else {
+                console.log('Right Pokemon wins');
+            }
+        });  
+    });  
 }
