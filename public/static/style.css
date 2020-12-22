@@ -198,9 +198,12 @@ header {
   padding: 0 2rem;
 }
 
-.title{
-  font-size: 2.7rem;
-}
+  .title{
+    font-size: 1.7rem;
+  }
+  .titleTwo{
+    font-size: 1.7rem;
+  }
   
 .index-title {
   font-size: 2.7rem;
