@@ -525,7 +525,7 @@ button{
   display: none;
   list-style: none;
   position: absolute;
-  background-color: #2c3e50;
+  background-color: rgba(29, 29, 29, 0.889);
   min-width: 500px;
   overflow: auto;
   box-shadow: var(--allShadow);
@@ -539,7 +539,7 @@ button{
   display: none;
   list-style: none;
   position: absolute;
-  background-color: #2c3e50;
+  background-color: rgba(29, 29, 29, 0.889);
   min-width: 500px;
   overflow: auto;
   box-shadow: var(--allShadowTwo);
@@ -638,3 +638,21 @@ button{
   margin: 4px;
 }
 
+.midPanel{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  justify-content: center;
+
+}
+
+#myProgress {
+  width: 300px;
+  background-color: var(--typeColorTwo);
+}
+
+#myBar {
+  width: 50%;
+  height: 30px;
+  background-color: var(--typeColor);
+}
