@@ -24,10 +24,8 @@ $(document).ready(function () {
         headers: { Accept: "application/json" },
     }).done(function (data) {
         
-        console.log(data);
         let i = 0;
         for (const [key, value] of Object.entries(data.data)) {
-            console.log(`${key}`);
             championArray.push(value);
 
             document.getElementById("pokemonList").innerHTML +=
