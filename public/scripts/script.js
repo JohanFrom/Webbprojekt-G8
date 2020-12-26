@@ -131,7 +131,7 @@ $(document).ready(function () {
 
 //Handle Chart logic
 function chart() {
-    //RÖR INTE DENNA
+    //RÖR INTE DENNA!!!!!!
     $(".chartContainer").html('<canvas id="myChart"></canvas>');
 
     const myChart = document.getElementById("myChart").getContext("2d");
