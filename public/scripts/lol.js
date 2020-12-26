@@ -4,7 +4,13 @@ const championArray = [];
 let chartContent = [];
 let chartLabels = [];
 let statsName = "Stats";
-let chartColor = "";
+let chartColor = ["Red", "Green","Yellow","Blue","Orange","Purple"];
+
+//ChartTwo
+let chartContentTwo = [];
+let chartLabelsTwo = [];
+let statsNameTwo = "Stats";
+let chartColorTwo = ["Red", "Green","Yellow","Blue","Orange","Purple"];
 
 
 banner.addEventListener("click", async () => {
@@ -58,7 +64,7 @@ function getValues(id, nbr){
         chartLabels.push(Object.keys(champion['stats'])[9]);
         chartLabels.push(Object.keys(champion['stats'])[16]);
         chartLabels.push(Object.keys(champion['stats'])[19]);
-        chartLabels.push(Object.keys(champion['stats'])[3]);
+        chartLabels.push("ability power");
 
                 
         chartContent.push(champion['stats']['hp']);
@@ -72,7 +78,7 @@ function getValues(id, nbr){
         //PokemonInfo
         $("#name").text(champion['id']);
         $("#image").html(
-            '<img src="' + champion["image"]["full"] + '">'
+            '<img src="' + "http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/" +champion["image"]["full"] + '">'
         );
         try {
             $(".typeHolder").html(
@@ -103,8 +109,101 @@ function getValues(id, nbr){
             capitalizeFirstLetter(Object.keys(champion['info'])[3])+": "+ champion["info"]["difficulty"]
         );
 
-    }
+    } else {
+        chartLabelsTwo = [];
+        chartContentTwo = [];
+        
+        
+        chartLabelsTwo.push(Object.keys(champion['stats'])[0]);
+        chartLabelsTwo.push(Object.keys(champion['stats'])[5]);
+        chartLabelsTwo.push(Object.keys(champion['stats'])[9]);
+        chartLabelsTwo.push(Object.keys(champion['stats'])[16]);
+        chartLabelsTwo.push(Object.keys(champion['stats'])[19]);
+        chartLabelsTwo.push("ability power");
+
+                
+        chartContentTwo.push(champion['stats']['hp']);
+        chartContentTwo.push(champion['stats']['armor']);
+        chartContentTwo.push(champion['stats']['attackrange']);
+        chartContentTwo.push(champion['stats']['attackspeed']);
+        chartContentTwo.push(champion['stats']['attackdamage']);
+        chartContentTwo.push(champion['stats']['mp']);
+        chartTwo();
+
+        //PokemonInfo
+        $("#nameTwo").text(champion['id']);
+        $("#imageTwo").html(
+            '<img src="' + "http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/" +champion["image"]["full"] + '">'
+        );
+        try {
+            $(".typeHolderTwo").html(
+                '<p class="type" >' +
+                    champion["tags"][0] +
+                    "</p> \n" +
+                    '<p class="type" >' +
+                    champion["tags"][1] +
+                    "</p>"
+            );
+        } catch (error) {
+            $(".typeHolderTwo").html(
+                '<p class="type">' +
+                champion["tags"][0] +
+                    "</p>"
+            );
+        }
+        $("#atack1Two").text(
+            capitalizeFirstLetter(Object.keys(champion['info'])[0])+": "+ champion["info"]["attack"]
+        );
+        $("#atack2Two").text(
+            capitalizeFirstLetter(Object.keys(champion['info'])[1])+": "+ champion["info"]["defense"]
+        );
+        $("#atack3Two").text(
+            capitalizeFirstLetter(Object.keys(champion['info'])[2])+": "+ champion["info"]["magic"]
+        );
+        $("#atack4Two").text(
+            capitalizeFirstLetter(Object.keys(champion['info'])[3])+": "+ champion["info"]["difficulty"]
+        );
+    }    
 }
+function chartTwo() {
+    //RÖR INTE DENNA
+    $(".chartContainerTwo").html('<canvas id="myChartTwo"></canvas>');
+
+    const myChartTwo = document.getElementById("myChartTwo").getContext("2d");
+    const firstChartTwo = new Chart(myChartTwo, {
+        type: "bar",
+        data: {
+            //title: 'Stats',
+            labels: chartLabelsTwo,
+            datasets: [
+                {
+                    label: statsNameTwo,
+                    labelColor: "White",
+                    data: chartContentTwo,
+                    backgroundColor: chartColorTwo,
+                    hoverBorderWidth: 2,
+
+                    hoverBorderColor: "black",
+                },
+            ],
+            color: "White",
+        },
+        options: {
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 180,
+                            fontColor: "White",
+                        },
+                    },
+                ],
+            },
+        },
+    });
+}
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
