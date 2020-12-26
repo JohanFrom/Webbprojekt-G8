@@ -26,13 +26,12 @@
         <header>
           <div class="overlay">
             <div class="inner">
-              <img src="/static/leaguelogo.png" alt="Pokéball" style="width:20%; height:20%;">
+              <img src="/static/leaguelogo.png" alt="Pokéball" style="width:20%; height:20%;" id="banner">
               <h2 class="lol-title">leauge of legends summoner database</h2>
-
+<!--
               <div class="region-dropdown">
                 <input type="text" id="summonerid" class="gamertag" placeholder="         riot-gametag">
 
-                <!-- PokemonSelectorTwo -->
                 <button onclick="regionDropdown()" class="region-dropbtn">REGION</button>
                 <div id="region-content-list" class="region-dropdown-content">
                     <p id="region">Europe Nordic & East, EUNE (EUN1)</p>
@@ -46,7 +45,20 @@
 
                 
               </div>
+-->
 
+              <div class="pokemon-dropdown">
+                <!-- PokemonSelectorTwo -->
+                <button onclick="pokemonDropdown()" class="dropbtn">Choose Pokémon</button>
+                <div id="pokemon-content-list" class="dropdown-content">
+                    <p id="pokemonList"></p>
+                </div>
+
+                <button onclick="pokemonDropdownTwo()" class="dropbtnTwo">Compare</button>
+                <div id="pokemon-content-listTwo" class="dropdown-contentTwo">
+                    <p id="pokemonListTwo"></p>
+                </div>
+              </div>
 
               <div class="graphSection">
                 <section class="pokemon-graph">
