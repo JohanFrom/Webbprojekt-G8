@@ -39,43 +39,32 @@ let chartColorTwo = [
     "rgba(0, 168, 224, 0.7)",
 ];
 
-banner.addEventListener("click", async () => {
-    console.log("yolo");
+//Load Pokemons to lists when the html-page gets loaded
+(async function () {
+    const fetcher = await fetch(
+        "https://ddragon.leagueoflegends.com/cdn/9.18.1/data/en_US/champion.json"
+    );
+    const jsonConvert = await fetcher.json();
+    let i = 0;
+    for (const [key, value] of Object.entries(jsonConvert.data)) {
+        championArray.push(value);
 
-    const api_url = `/lol`;
-    const response = await fetch(api_url);
-    const json = await response.json();
-    console.log(json);
-});
+        document.getElementById("pokemonList").innerHTML +=
+            '<a href="#" class="dropdown-item" id="' +
+            i +
+            '" onclick="getValues(this.id, 1)">' +
+            key +
+            "</a>";
 
-//Load Pokemons to lists
-$(document).ready(function () {
-    $.ajax({
-        url:
-            "https://ddragon.leagueoflegends.com/cdn/9.18.1/data/en_US/champion.json",
-        headers: { Accept: "application/json" },
-    }).done(function (data) {
-        let i = 0;
-        for (const [key, value] of Object.entries(data.data)) {
-            championArray.push(value);
-
-            document.getElementById("pokemonList").innerHTML +=
-                '<a href="#" class="dropdown-item" id="' +
-                i +
-                '" onclick="getValues(this.id, 1)">' +
-                key +
-                "</a>";
-
-            document.getElementById("pokemonListTwo").innerHTML +=
-                '<a href="#" class="dropdown-itemTwo" id="' +
-                i +
-                '" onclick="getValues(this.id, 2)">' +
-                key +
-                "</a>";
-            i++;
-        }
-    });
-});
+        document.getElementById("pokemonListTwo").innerHTML +=
+            '<a href="#" class="dropdown-itemTwo" id="' +
+            i +
+            '" onclick="getValues(this.id, 2)">' +
+            key +
+            "</a>";
+        i++;
+    }
+})();
 
 function getValues(id, nbr) {
     const champion = championArray[id];
@@ -169,7 +158,8 @@ function getValues(id, nbr) {
         chartTwo();
 
         //PokemonInfo
-        $("#nameTwo").text(champion["id"]);
+        document.getElementById("nameTwo").innerHTML = champion["id"];
+        //$("#nameTwo").text(champion["id"]);
         $("#imageTwo").html(
             '<img src="' +
                 "http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/" +
@@ -190,26 +180,22 @@ function getValues(id, nbr) {
                 '<p class="type">' + champion["tags"][0] + "</p>"
             );
         }
-        $("#atack1Two").text(
+        document.getElementById("atack1Two").innerHTML =
             capitalizeFirstLetter(Object.keys(champion["info"])[0]) +
-                " Rating: " +
-                champion["info"]["attack"]
-        );
-        $("#atack2Two").text(
+            " Rating: " +
+            champion["info"]["attack"];
+        document.getElementById("atack2Two").innerHTML =
             capitalizeFirstLetter(Object.keys(champion["info"])[1]) +
-                " Rating: " +
-                champion["info"]["defense"]
-        );
-        $("#atack3Two").text(
+            " Rating: " +
+            champion["info"]["defense"];
+        document.getElementById("atack3Two").innerHTML =
             capitalizeFirstLetter(Object.keys(champion["info"])[2]) +
-                " Rating: " +
-                champion["info"]["magic"]
-        );
-        $("#atack4Two").text(
+            " Rating: " +
+            champion["info"]["magic"];
+        document.getElementById("atack4Two").innerHTML =
             capitalizeFirstLetter(Object.keys(champion["info"])[3]) +
-                " Rating: " +
-                champion["info"]["difficulty"]
-        );
+            " Rating: " +
+            champion["info"]["difficulty"];
     }
 }
 function chartTwo() {
