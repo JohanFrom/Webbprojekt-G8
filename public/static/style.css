@@ -662,8 +662,8 @@ ul {
 }
 
 .region-dropbtn { 
-  background-color: var(--lolTypeColor);
-  box-shadow: var(--allShadow);
+  background-color: rgb(41, 159, 255);
+  box-shadow: rgb(41, 159, 255);
   float: left;
   color: rgb(255, 255, 255);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
@@ -698,7 +698,7 @@ input[type="text"]{
 #accept-info{
   height: 4.5em;
   width: 7em;
-  background-color: var(--lolTypeColor);
+  background-color: rgb(41, 159, 255);
   border-color: rgba(0, 0, 0, 0.561);
   border-radius: 5px;
   color: rgb(255, 255, 255);
