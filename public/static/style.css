@@ -781,6 +781,7 @@ input[type="text"]{
   width: 300px;
   background-color: var(--typeColorTwo);
   border-style: solid;
+  margin-left: 4.7rem;
   border-color: black;
   border-width: 2px;
 }
