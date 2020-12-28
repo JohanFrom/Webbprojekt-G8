@@ -538,14 +538,6 @@ ul {
   margin-left: 7rem;
 }
 
-.pokemon-dropdownTwo{
-  width: 38.8em;
-  border-radius: 10px;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 200px;
-}
-  
 .dropdown-content{
   display: none;
   list-style: none;

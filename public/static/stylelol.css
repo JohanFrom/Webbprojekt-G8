@@ -57,11 +57,11 @@
 }
 
 body{
-  height: 200rem;
+  height: 100%;
 }
 
 .main-container{
-  height: 200rem;
+  height: 100%;
 }
 
 body,
@@ -70,7 +70,7 @@ button{
 }
 
 .container{
-  height: 200rem;
+  height: 100%;
   width: 100%;
   
   background: rgb(68, 68, 68);
@@ -171,7 +171,6 @@ button{
 header {
   min-height: 100rem;
   width: 100%;
-  /*background: url("bg.jpg") no-repeat top center / cover;*/
   position: relative;
 }
   
@@ -191,7 +190,8 @@ header {
   text-align: center;
   color: white;
   padding: 2rem;
-  max-height: 90%;
+
+  max-height: 100%;
   background-color: rgba(0, 0, 0, 0.281);
   border-radius: 10px;
 }
@@ -557,14 +557,6 @@ ul {
   position: relative;
   display: inline-block;
   margin-bottom: 100px;
-}
-
-.pokemon-dropdownTwo{
-  width: 38.8em;
-  border-radius: 10px;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 200px;
 }
   
 .dropdown-content{
