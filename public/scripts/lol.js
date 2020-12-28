@@ -39,7 +39,7 @@ let chartColorTwo = [
     "rgba(0, 168, 224, 0.7)",
 ];
 
-//Load Pokemons to lists when the html-page gets loaded
+//Load champions to lists when the html-page gets loaded
 (async function () {
     const fetcher = await fetch(
         "https://ddragon.leagueoflegends.com/cdn/9.18.1/data/en_US/champion.json"
@@ -92,7 +92,7 @@ function getValues(id, nbr) {
         chartContent.push(champion["stats"]["mp"]);
         chart();
 
-        //PokemonInfo
+        //ChampionInfo
         $("#name").text(champion["id"]);
         $("#image").html(
             '<img src="' +
@@ -157,7 +157,7 @@ function getValues(id, nbr) {
         chartContentTwo.push(champion["stats"]["mp"]);
         chartTwo();
 
-        //PokemonInfo
+        //ChampionInfo
         document.getElementById("nameTwo").innerHTML = champion["id"];
         //$("#nameTwo").text(champion["id"]);
         $("#imageTwo").html(

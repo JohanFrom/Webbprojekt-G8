@@ -17,11 +17,11 @@
 }
 
 body{
-  height: 200rem;
+  height: 100%;
 }
 
 .main-container{
-  height: 200rem;
+  height: 100%;
 }
 
 body,
@@ -30,9 +30,8 @@ button{
 }
 
 .container{
-  height: 200rem;
+  height: 100rem;
   width: 100%;
-  
   background: rgb(68, 68, 68);
   overflow-x: hidden;
   transform-style: preserve-3d;
@@ -116,10 +115,16 @@ button{
 .bar:after {
   transform: translateY(9px);
 }
-  
+ 
+header {
+  width: 100%;
+  position: relative;
+}
+
 .main{
   position: relative;
   width: 100%;
+  height: 100%;
   left: 0;
   z-index: 5;
   overflow: hidden;
@@ -128,20 +133,13 @@ button{
   transition: 0.5s;
 }
   
-header {
-  min-height: 100rem;
-  width: 100%;
-  /*background: url("bg.jpg") no-repeat top center / cover;*/
-  position: relative;
-}
-  
 .overlay {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100rem;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.657);
+  background-color: rgb(42, 42, 42);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,10 +148,12 @@ header {
 .inner{
   text-align: center;
   color: white;
+  margin-top: -15rem;
   padding: 2rem;
-  max-height: 90%;
+  max-height: 100%;
   background-color: rgba(0, 0, 0, 0.281);
   border-radius: 10px;
+  max-width: 100rem;
 }
 
 #description{
@@ -234,6 +234,7 @@ header {
   display: flex;
   flex-direction: row;
   height: fit-content;
+  max-width: 100%;
 }
 
 .VStitle{
@@ -243,45 +244,62 @@ header {
 
 .pokemon-graph{
   float: left;
+  /*max-width: 30rem;*/
 }
 
 .pokemon-graphTwo{
   float:right;
-}
-
-.pokemon-graph > .container{
-  background-color: rgba(43, 51, 59, 0);
-  width: 150%;
+  /*max-width: 30rem;*/
 }
 
 .pokemon-stats{
   display: flex;
   flex-direction:column;
   margin-right: 10rem;
-  margin-bottom: 2rem;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
   border-width: 3px;
-  height: 22rem;
+  height: 16rem;
   width: 20rem;
   padding: 4%;
+  margin-bottom: 1rem;
   border-radius: 10px;
   box-shadow: var(--allShadow);
   background-color: rgba(0, 0, 0, 0.349);
 }
 
+.attacksContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.attacksContainer > p{
+  flex: 0 50%;
+  padding: 5px;
+}
+
 .pokemon-statsTwo{
-  margin-left: 30rem;
-  margin-bottom: 2rem;
+  margin-left: 15rem;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
   border-width: 3px;
-  height: 22rem;
+  height: 16rem;
   width: 20rem;
   padding: 4%;
+  margin-bottom: 1rem;
   border-radius: 10px;
   box-shadow: var(--allShadowTwo);
   background-color: rgba(0, 0, 0, 0.349);
+}
+
+.attacksContainerTwo{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.attacksContainerTwo > p{
+  flex: 0 50%;
+  padding: 5px;
 }
   
 .btn {
@@ -472,8 +490,8 @@ ul {
   font-weight: 1000;
   border: none;
   cursor: pointer;
-  width: 15em;
-  height: 5em;
+  width: 15rem;
+  height: 4rem;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.561);
   border-radius: 10px;
@@ -496,8 +514,8 @@ ul {
   font-weight: 1000;
   border: none;
   cursor: pointer;
-  width: 15em;
-  height: 5em;
+  width: 15rem;
+  height: 4rem;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.561);
   border-radius: 10px;
@@ -514,7 +532,8 @@ ul {
   border-radius: 10px;
   position: relative;
   display: inline-block;
-  margin-bottom: 100px;
+  margin-bottom: 3rem;
+  margin-left: 7rem;
 }
 
 .pokemon-dropdownTwo{
@@ -593,8 +612,8 @@ ul {
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: var(--allShadow);
   border-width: 3px;
-  height: 25rem !important;
-  width: 50rem !important;
+  height: 15rem;
+  width: 30rem;
 }
 
 .chartContainerTwo {
@@ -605,8 +624,8 @@ ul {
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: var(--allShadowTwo);
   border-width: 3px;
-  height: 25rem !important;
-  width: 50rem !important;
+  height: 15rem;
+  width: 30rem;
 }
 
 .chartContainer > footer{
@@ -621,17 +640,16 @@ ul {
 }
 
 .typeHolder {
- 
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .typeHolderTwo {
  
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .type {
@@ -736,12 +754,8 @@ input[type="text"]{
 
 .show {display: block;}
 
-.midPanel{
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-  justify-content: center;
-
+#midPanel{
+  margin-left: 5rem;
 }
 
 #myProgress {
