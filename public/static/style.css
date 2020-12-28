@@ -791,3 +791,128 @@ input[type="text"]{
   background-color: var(--typeColor);
 }
 
+
+
+/*ABOUT US*/
+.facebook-btns > ul{
+  transform: translate(-50%, -50%);
+  display: flex;
+  margin-left: 44em;
+  margin-top: 20px;
+}
+
+.facebook-btns > ul li{
+  list-style: none;
+  margin: 0 15px;
+}
+
+.facebook-btns > ul li a .fa{
+  font-size: 40px;
+  color: white;
+  line-height: 80px;
+  transition: 0.5s;
+  padding-right: 14px;
+}
+
+.facebook-btns > ul li a span{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  color: black;
+  letter-spacing: 4px;
+  transition: 0.5s;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.facebook-btns > ul li a{
+  text-decoration: none;
+  display: absolute;
+  display: block;
+  width: 210px;
+  height: 80px;
+  background: rgb(41, 159, 255);
+  text-align: left;
+  padding-left: 20px;
+  transform: rotate(-30deg) skewX(25deg) translate(0,0);
+  transition: 0.5s;
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+.facebook-btns > ul li a:before{
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background: rgb(95, 182, 253);
+  transform: 0.5;
+  transform: rotate(0deg) skewY(-45deg);
+}
+
+.facebook-btns > ul li a:after{
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background: rgb(95, 182, 253);
+  transform: 0.5;
+  transform: rotate(0deg) skewX(-45deg);
+}
+
+.facebook-btns > ul li a:hover{
+  transform: rotate(-30deg) skew(25deg) translate(20px, -15px);
+  box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.facebook-btns > ul li:hover .fa{
+  color: rgb(41, 159, 255);
+}
+
+.facebook-btns > ul li:hover span{
+  color: black;
+}
+
+.facebook-btns > ul li:hover a{
+  background: rgb(197, 195, 195);
+}
+
+.facebook-btns > ul li:hover a:before{
+  background: rgb(189, 186, 186);
+}
+
+.facebook-btns > ul li:hover a:after{
+  background: rgb(189, 186, 186);
+}
+
+.web-api-description{
+  margin-top: 5em;
+}
+
+.web-api-description > #web-api-textinfo{
+  border-bottom-style: solid;
+  border-color: red;
+  width: 800px;
+  margin-left: 22rem;
+  padding: 10px;
+}
+
+
+.web-api-description h2{
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.web-api-description a{
+  text-decoration: none;
+  color: red;
+}
+
+.web-api-description a:hover{
+  text-decoration: none;
+  color: rgb(41, 159, 255);
+}
