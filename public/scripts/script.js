@@ -38,6 +38,10 @@ document.getElementById("pokemon-content-listTwo").onclick = function (event) {
         }
     }
 };
+//Html tags
+const display = document.querySelector(".pokemon-graph");
+const displayTwo = document.querySelector(".pokemon-graphTwo");
+const displayMid = document.getElementById("midPanel");
 
 //POKEMON INFO CARD
 const pokemonArray = [];
@@ -220,6 +224,7 @@ function pokemonSelectFunc(id, nr) {
         //ChartData
         setChartColor(data["types"][0]["type"]["name"], nr);
         if (nr === 1) {
+            display.style.visibility = "visible";
             selectedPokemons[0] = data;
             chartLabels = [];
             chartContent = [];
@@ -276,6 +281,8 @@ function pokemonSelectFunc(id, nr) {
                 fight();
             }
         } else {
+            displayTwo.style.visibility = "visible";
+            displayMid.style.visibility = "visible";
             switcher = true;
             selectedPokemons[1] = data;
             chartLabelsTwo = [];
