@@ -1,13 +1,4 @@
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover, .dropbtn:focus {
     background-color: #2980B9;
   }
   
@@ -19,6 +10,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
+    margin-top: 6rem;
     background-color: #f1f1f1;
     min-width: 160px;
     overflow: auto;
@@ -72,7 +64,6 @@ button{
 .container{
   height: 100%;
   width: 100%;
-  
   background: rgb(68, 68, 68);
   overflow-x: hidden;
   transform-style: preserve-3d;
@@ -190,7 +181,8 @@ header {
   text-align: center;
   color: white;
   padding: 2rem;
-
+  margin-top: 10rem;
+  margin-bottom: 5rem;
   max-height: 100%;
   background-color: rgba(0, 0, 0, 0.281);
   border-radius: 10px;
@@ -274,6 +266,10 @@ header {
   display: flex;
   flex-direction: row;
   height: fit-content;
+  background-image: url(/static/lolback.jpg);
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.822);
 }
 
 .VStitle{
@@ -284,11 +280,17 @@ header {
 .champion-graph{
   visibility: hidden;
   float: left;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .champion-graphTwo{
   visibility: hidden;
   float:right;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .champion-graph > .container{
@@ -302,28 +304,30 @@ header {
   margin-right: 10rem;
   margin-bottom: 2rem;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgb(109, 189, 255);
   border-width: 3px;
-  height: 22rem;
+  height: 25rem;
   width: 20rem;
   padding: 4%;
   border-radius: 10px;
   box-shadow: var(--allShadow);
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .pokemon-statsTwo{
+  display: flex;
+  flex-direction:column;
   margin-left: 30rem;
   margin-bottom: 2rem;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgb(109, 189, 255);
   border-width: 3px;
-  height: 22rem;
+  height: 25rem;
   width: 20rem;
   padding: 4%;
   border-radius: 10px;
   box-shadow: var(--allShadowTwo);
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.8);
 }
   
 .btn {
@@ -514,8 +518,8 @@ ul {
   font-weight: 1000;
   border: none;
   cursor: pointer;
-  width: 15em;
-  height: 5em;
+  width: 15rem;
+  height: 5rem;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.561);
   border-radius: 10px;
@@ -538,8 +542,8 @@ ul {
   font-weight: 1000;
   border: none;
   cursor: pointer;
-  width: 15em;
-  height: 5em;
+  width: 15rem;
+  height: 5rem;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.561);
   border-radius: 10px;
@@ -556,7 +560,8 @@ ul {
   border-radius: 10px;
   position: relative;
   display: inline-block;
-  margin-bottom: 100px;
+  margin-bottom: 2rem;
+  margin-left: 7rem;
 }
   
 .dropdown-content{
@@ -577,6 +582,7 @@ ul {
   display: none;
   list-style: none;
   position: absolute;
+  margin-top: 6rem;
   background-color: rgba(29, 29, 29, 0.889);
   min-width: 500px;
   overflow: auto;
@@ -621,26 +627,26 @@ ul {
 }
 
 .chartContainer {
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgb(109, 189, 255);
   box-shadow: var(--allShadow);
   border-width: 3px;
-  height: 25rem !important;
-  width: 50rem !important;
+  height: 25rem;
+  width: 45rem;
 }
 
 .chartContainerTwo {
   float: right;
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgb(109, 189, 255);
   box-shadow: var(--allShadowTwo);
   border-width: 3px;
-  height: 25rem !important;
-  width: 50rem !important;
+  height: 25rem;
+  width: 45rem;
 }
 
 .chartContainer > footer{
@@ -654,8 +660,45 @@ ul {
   color: #eee;
 }
 
+#lvlUpOne{
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.561);
+  border-radius: 10px;
+  border-width: 2px; 
+  border-radius: 10px;
+  background-color: rgb(41, 159, 255);
+  color: white;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  margin-left: 3rem;
+  max-width: 10rem;
+  min-height: 3rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+  font-size: 20px;
+  font-weight: 1000;
+}
+
+#lvlUpTwo{
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.561);
+  border-radius: 10px;
+  border-width: 2px; 
+  border-radius: 10px;
+  background-color: rgb(41, 159, 255);
+  color: white;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  margin-left: 3rem;
+  max-width: 10rem;
+  min-height: 3rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+  font-size: 20px;
+  font-weight: 1000;
+}
+
 .typeHolder {
- 
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
