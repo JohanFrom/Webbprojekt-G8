@@ -242,10 +242,12 @@ header {
 }
 
 .pokemon-graph{
+  visibility: hidden;
   float: left;
 }
 
 .pokemon-graphTwo{
+  visibility: hidden;
   float:right;
 }
 
@@ -736,12 +738,11 @@ input[type="text"]{
 
 .show {display: block;}
 
-.midPanel{
+#midPanel{
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   width: 100px;
-  justify-content: center;
-
 }
 
 #myProgress {
