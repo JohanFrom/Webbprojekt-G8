@@ -235,6 +235,11 @@ header {
   flex-direction: row;
   height: fit-content;
   max-width: 100%;
+  min-height: 40rem;
+  background-image: url(/static/pokestadium.png);
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.644);
 }
 
 .VStitle{
@@ -257,9 +262,11 @@ header {
 .pokemon-stats{
   display: flex;
   flex-direction:column;
+  margin-top: 4rem;
   margin-right: 10rem;
+  margin-left: 1rem;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.753);
   border-width: 3px;
   height: 16rem;
   width: 20rem;
@@ -267,7 +274,7 @@ header {
   margin-bottom: 1rem;
   border-radius: 10px;
   box-shadow: var(--allShadow);
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .attacksContainer{
@@ -281,7 +288,8 @@ header {
 }
 
 .pokemon-statsTwo{
-  margin-left: 15rem;
+  margin-left: 10rem;
+  margin-top: 4rem;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
   border-width: 3px;
@@ -291,7 +299,7 @@ header {
   margin-bottom: 1rem;
   border-radius: 10px;
   box-shadow: var(--allShadowTwo);
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .attacksContainerTwo{
@@ -553,6 +561,7 @@ ul {
   display: none;
   list-style: none;
   position: absolute;
+  margin-top: 6rem;
   background-color: rgba(29, 29, 29, 0.889);
   min-width: 500px;
   overflow: auto;
@@ -567,6 +576,7 @@ ul {
   display: none;
   list-style: none;
   position: absolute;
+  margin-top: 6rem;
   background-color: rgba(29, 29, 29, 0.889);
   min-width: 500px;
   overflow: auto;
@@ -611,7 +621,7 @@ ul {
 }
 
 .chartContainer {
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
@@ -619,11 +629,12 @@ ul {
   border-width: 3px;
   height: 15rem;
   width: 30rem;
+  margin-left: 1rem;
 }
 
 .chartContainerTwo {
   float: right;
-  background-color: rgba(0, 0, 0, 0.349);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.4);
@@ -631,6 +642,7 @@ ul {
   border-width: 3px;
   height: 15rem;
   width: 30rem;
+  margin-right: 1rem;
 }
 
 .chartContainer > footer{
@@ -760,12 +772,15 @@ input[type="text"]{
 .show {display: block;}
 
 #midPanel{
-  margin-left: 5rem;
+  margin-top: 6rem;
 }
 
 #myProgress {
   width: 300px;
   background-color: var(--typeColorTwo);
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
 
 #myBar {

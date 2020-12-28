@@ -18,12 +18,12 @@ let chartContent = [];
 let chartLabels = [];
 let statsName = "Stats";
 let chartColor = [
-    "rgba(200, 0, 0, 0.7)",
     "rgba(0, 186, 0, 0.7)",
+    "rgba(200, 0, 0, 0.7)",
     "rgba(255, 245, 0, 0.7)",
     "rgba(0, 168, 224, 0.7)",
     "rgba(255, 90, 0, 0.7)",
-    "rgba(0, 168, 224, 0.7)",
+    "rgba(0, 80, 224, 0.7)",
 ];
 
 //ChartTwo
@@ -31,12 +31,12 @@ let chartContentTwo = [];
 let chartLabelsTwo = [];
 let statsNameTwo = "Stats";
 let chartColorTwo = [
-    "rgba(200, 0, 0, 0.7)",
     "rgba(0, 186, 0, 0.7)",
+    "rgba(200, 0, 0, 0.7)",
     "rgba(255, 245, 0, 0.7)",
     "rgba(0, 168, 224, 0.7)",
     "rgba(255, 90, 0, 0.7)",
-    "rgba(0, 168, 224, 0.7)",
+    "rgba(0, 80, 224, 0.7)",
 ];
 
 //Load champions to lists when the html-page gets loaded
