@@ -6,6 +6,24 @@
     position: relative;
     display: inline-block;
   }
+  #midPanelLol{
+    margin-top: 6rem;
+  }
+  
+  #myProgressLol {
+    width: 300px;
+    background-color: var(--typeColorTwo);
+    border-style: solid;
+    margin-left: 4.7rem;
+    border-color: black;
+    border-width: 2px;
+  }
+  
+  #myBarLol {
+    width: 50%;
+    height: 30px;
+    background-color: var(--typeColor);
+  }
   
   .dropdown-content {
     display: none;
