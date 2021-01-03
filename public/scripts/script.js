@@ -94,7 +94,7 @@ const elementColors = {
     water: "rgba(0, 168, 224, 0.7)",
     bug: "rgba(177, 207, 0, 0.7)",
     normal: "rgba(243, 245, 246, 0.7)",
-    electric: "rgba(255,254,80,0.7)",
+    electric: "rgba(255,255,0,0.7)",
     ground: "rgba(255, 192, 0, 0.7)",
     psychic: "rgba(255, 57, 196, 0.7)",
     ghost: "rgba(53, 0, 193, 0.7)",
