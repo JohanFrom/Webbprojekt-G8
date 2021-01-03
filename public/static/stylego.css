@@ -266,7 +266,7 @@ header {
   display: flex;
   flex-direction: row;
   height: fit-content;
-  background-image: url(/static/valback.jpg);
+  background-image: url(/static/go-background.jpg);
   background-position: center;
   background-size: cover;
   border-radius: 10px;
@@ -508,7 +508,7 @@ ul {
 
 
 .dropbtn { 
-  background-color: rgb(255, 80, 80);
+  background-color: rgb(25, 84, 124);
   box-shadow: rgb(41, 159, 255);
   margin-right: 1em;
   float: left;
@@ -529,11 +529,11 @@ ul {
 }
   
 .dropbtn:hover, .dropbtn:focus {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .dropbtnTwo { 
-  background-color: rgb(255, 80, 80);
+  background-color: rgb(25, 84, 124);
   box-shadow: rgb(41, 159, 255);
   float: left;
   color: white;
@@ -684,8 +684,8 @@ ul {
 
 
 
-/*VALORANT*/
-.val-title{
+/*POKÉMON GO*/
+.go-title{
   font-size: 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -693,7 +693,7 @@ ul {
   line-height: 4rem;
   margin-bottom: 50px;
   border-bottom: 6px solid;
-  border-color: rgb(255, 80, 80);
+  border-color: rgb(25, 84, 124);
   border-radius: 5px;
 }
 
