@@ -1,186 +1,281 @@
+const display = document.querySelector(".champion-graph");
+const displayTwo = document.querySelector(".champion-graphTwo");
+const displayMid = document.getElementById("midPanel");
 
-const pokemonGoArray= []
-let pokemonGoOne
-const pokemonPicArray= []
+const pokemonGoArray = [];
+const pokemonPicArray = [];
+let pokemonGoOne;
+let pokemonGoTwo;
+
+const typeHolder = document.querySelector(".typeHolder");
+const typeHolderTwo = document.querySelector(".typeHolderTwo");
+
+//ChartOne
+let chartContent = [];
+let chartLabels = [];
+let statsName = "Stats";
+let chartColor = "";
+
+//ChartTwo
+let chartContentTwo = [];
+let chartLabelsTwo = [];
+let statsNameTwo = "Stats";
+let chartColorTwo = "";
+
+//CSS variables
+const root = document.querySelector(":root");
+
+//Switch
+let switcher = false;
+
+//ResultBar
+var elem = document.getElementById("myBar");
+
+const elementColors = {
+    fire: "rgba(255, 90, 0, 0.7)",
+    grass: "rgba(0, 186, 0, 0.7)",
+    water: "rgba(0, 168, 224, 0.7)",
+    bug: "rgba(159, 186, 0, 0.7)",
+    normal: "rgba(243, 245, 246, 0.7)",
+    electric: "rgba(255, 255, 0, 0.7)",
+    ground: "rgba(255, 192, 0, 0.7)",
+    psychic: "rgba(255, 57, 196, 0.7)",
+    ghost: "rgba(53, 0, 193, 0.7)",
+    fairy: "rgba(255, 126, 193, 0.7)",
+    dragon: "rgba(0, 0, 255, 0.7)",
+    steel: "rgba(180, 180, 180, 0.7)",
+    ice: "rgba(0, 255, 255, 0.7)",
+    poison: "rgba(136, 0, 135, 0.7)",
+    flying: "rgba(73, 128, 255, 0.7)",
+    fighting: "rgba(162, 15, 0, 0.7)",
+    rock: "rgba(162, 113, 0, 0.7)",
+};
 
 (async function () {
-
     const api_url = `/go`;
     const response = await fetch(api_url);
     const json = await response.json();
-    let check=1;
-    let formCheck="Normal";
+    let check = 1;
+    let formCheck = "Normal";
     for (i = 1; i < Object.keys(json).length; i++) {
-        if(json[i]["pokemon_id"] === check && json[i]["form"] === formCheck){
+        if (json[i]["pokemon_id"] === check && json[i]["form"] === formCheck) {
             pokemonGoArray.push(json[i]);
             document.getElementById("pokemonList").innerHTML +=
                 '<a href="#" class="dropdown-item" id="' +
-                (check-1) +
-                '" onclick="pokemonSelectFunc(this.id, 1)">' +
+                (check - 1) +
+                '" onclick="getValues(this.id, 1)">' +
                 json[i]["pokemon_name"] +
                 "</a>";
 
             document.getElementById("pokemonListTwo").innerHTML +=
                 '<a href="#" class="dropdown-itemTwo" id="' +
-                (check-1) +
-                '" onclick="pokemonSelectFunc(this.id, 2)">' +
+                (check - 1) +
+                '" onclick="getValues(this.id, 2)">' +
                 json[i]["pokemon_name"] +
                 "</a>";
-                check++;
+            check++;
         }
     }
-    console.log(pokemonGoArray)
 })();
 
-(async function () {
+async function getValues(id, nbr) {
+    const pokemonGo = pokemonGoArray[id];
+    console.log(pokemonGo);
     const fetcher = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=801"
+        "https://pokeapi.co/api/v2/pokemon/" + (parseInt(id) + 1) + "/"
     );
     const jsonConvert = await fetcher.json();
-    for (i = 0; i < Object.keys(jsonConvert).length; i++) {
-        const fetcher = await fetch(
-            jsonConvert[i]["url"]
-
-        );
-        const jsonConvert = await fetcher.json();
-        pokemonPicArray[i]= jsonConvert;
-    }
-    console.log("picArray")
-    console.log(pokemonPicArray)
-    
-    
-})();
-
-function getValues(id, nbr) {
-    const pokemonGo = pokemonGoArray[id];
-
+    console.log(jsonConvert);
+    setChartColor(jsonConvert["types"][0]["type"]["name"], nbr);
     if (nbr === 1) {
         display.style.visibility = "visible";
-        championOne = champion;
-        championOneCurrentLvl = 1;
+        pokemonGoOne = pokemonGo;
+
+        //till graf
         chartLabels = [];
         chartContent = [];
 
-        chartLabels.push(Object.keys(champion["stats"])[0]);
-        chartLabels.push(Object.keys(champion["stats"])[5]);
-        chartLabels.push(Object.keys(champion["stats"])[9]);
-        chartLabels.push(Object.keys(champion["stats"])[16]);
-        chartLabels.push(Object.keys(champion["stats"])[19]);
-        chartLabels.push("ability power");
+        chartLabels.push("Attack");
+        chartLabels.push("Defense");
+        chartLabels.push("Stamina");
 
-        chartContent.push(champion["stats"]["hp"]);
-        chartContent.push(champion["stats"]["armor"]);
-        chartContent.push(champion["stats"]["attackrange"]);
-        chartContent.push(champion["stats"]["attackspeed"]);
-        chartContent.push(champion["stats"]["attackdamage"]);
-        chartContent.push(champion["stats"]["mp"]);
+        chartContent.push(pokemonGo["base_attack"]);
+        chartContent.push(pokemonGo["base_defense"]);
+        chartContent.push(pokemonGo["base_stamina"]);
         chart();
 
         //ChampionInfo
-        $("#name").text(champion["id"]);
+        $("#name").text(capitalizeFirstLetter(jsonConvert["name"]));
         $("#image").html(
-            '<img src="' +
-                "http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/" +
-                champion["image"]["full"] +
-                '">'
+            '<img src="' + jsonConvert["sprites"]["front_default"] + '">'
         );
         try {
-            $(".typeHolder").html(
-                '<p class="type" >' +
-                    champion["tags"][0] +
-                    "</p> \n" +
-                    '<p class="type" >' +
-                    champion["tags"][1] +
-                    "</p>"
-            );
+            typeHolder.innerHTML =
+                '<p class="type" style="background-color: ' +
+                elementColors[jsonConvert["types"][0]["type"]["name"]] +
+                ';">' +
+                jsonConvert["types"][0]["type"]["name"] +
+                "</p> \n" +
+                '<p class="type" style="background-color: ' +
+                elementColors[jsonConvert["types"][1]["type"]["name"]] +
+                ';">' +
+                jsonConvert["types"][1]["type"]["name"] +
+                "</p>";
         } catch (error) {
-            $(".typeHolder").html(
-                '<p class="type">' + champion["tags"][0] + "</p>"
-            );
+            typeHolder.innerHTML =
+                '<p class="type" style="background-color: ' +
+                elementColors[jsonConvert["types"][0]["type"]["name"]] +
+                ';">' +
+                jsonConvert["types"][0]["type"]["name"] +
+                "</p>";
         }
-        $("#atack1").text(
-            capitalizeFirstLetter(Object.keys(champion["info"])[0]) +
-                " Rating: " +
-                champion["info"]["attack"]
-        );
-        $("#atack2").text(
-            capitalizeFirstLetter(Object.keys(champion["info"])[1]) +
-                " Rating: " +
-                champion["info"]["defense"]
-        );
-        $("#atack3").text(
-            capitalizeFirstLetter(Object.keys(champion["info"])[2]) +
-                " Rating: " +
-                champion["info"]["magic"]
-        );
-        $("#atack4").text(
-            capitalizeFirstLetter(Object.keys(champion["info"])[3]) +
-                " Rating: " +
-                champion["info"]["difficulty"]
-        );
-    }
-     else {
-        document.getElementById("lvlUpTwo").innerHTML = "lvl up";
+    } else {
         displayTwo.style.visibility = "visible";
-        championTwo = champion;
-        championTwoCurrentLvl = 1;
+        displayMid.style.visibility = "visible";
+        switcher = true;
+        pokemonGoTwo = pokemonGo;
+
+        //till graf
         chartLabelsTwo = [];
         chartContentTwo = [];
 
-        chartLabelsTwo.push(Object.keys(champion["stats"])[0]);
-        chartLabelsTwo.push(Object.keys(champion["stats"])[5]);
-        chartLabelsTwo.push(Object.keys(champion["stats"])[9]);
-        chartLabelsTwo.push(Object.keys(champion["stats"])[16]);
-        chartLabelsTwo.push(Object.keys(champion["stats"])[19]);
-        chartLabelsTwo.push("ability power");
+        chartLabelsTwo.push("Attack");
+        chartLabelsTwo.push("Defense");
+        chartLabelsTwo.push("Stamina");
 
-        chartContentTwo.push(champion["stats"]["hp"]);
-        chartContentTwo.push(champion["stats"]["armor"]);
-        chartContentTwo.push(champion["stats"]["attackrange"]);
-        chartContentTwo.push(champion["stats"]["attackspeed"]);
-        chartContentTwo.push(champion["stats"]["attackdamage"]);
-        chartContentTwo.push(champion["stats"]["mp"]);
+        chartContentTwo.push(pokemonGo["base_attack"]);
+        chartContentTwo.push(pokemonGo["base_defense"]);
+        chartContentTwo.push(pokemonGo["base_stamina"]);
         chartTwo();
 
         //ChampionInfo
-        document.getElementById("nameTwo").innerHTML = champion["id"];
-        //$("#nameTwo").text(champion["id"]);
+        $("#nameTwo").text(capitalizeFirstLetter(jsonConvert["name"]));
         $("#imageTwo").html(
-            '<img src="' +
-                "http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/" +
-                champion["image"]["full"] +
-                '">'
+            '<img src="' + jsonConvert["sprites"]["front_default"] + '">'
         );
         try {
-            $(".typeHolderTwo").html(
-                '<p class="type" >' +
-                    champion["tags"][0] +
-                    "</p> \n" +
-                    '<p class="type" >' +
-                    champion["tags"][1] +
-                    "</p>"
-            );
+            typeHolderTwo.innerHTML =
+                '<p class="type" style="background-color: ' +
+                elementColors[jsonConvert["types"][0]["type"]["name"]] +
+                ';">' +
+                jsonConvert["types"][0]["type"]["name"] +
+                "</p> \n" +
+                '<p class="type" style="background-color: ' +
+                elementColors[jsonConvert["types"][1]["type"]["name"]] +
+                ';">' +
+                jsonConvert["types"][1]["type"]["name"] +
+                "</p>";
         } catch (error) {
-            $(".typeHolderTwo").html(
-                '<p class="type">' + champion["tags"][0] + "</p>"
-            );
+            typeHolderTwo.innerHTML =
+                '<p class="type" style="background-color: ' +
+                elementColors[jsonConvert["types"][0]["type"]["name"]] +
+                ';">' +
+                jsonConvert["types"][0]["type"]["name"] +
+                "</p>";
         }
-        document.getElementById("atack1Two").innerHTML =
-            capitalizeFirstLetter(Object.keys(champion["info"])[0]) +
-            " Rating: " +
-            champion["info"]["attack"];
-        document.getElementById("atack2Two").innerHTML =
-            capitalizeFirstLetter(Object.keys(champion["info"])[1]) +
-            " Rating: " +
-            champion["info"]["defense"];
-        document.getElementById("atack3Two").innerHTML =
-            capitalizeFirstLetter(Object.keys(champion["info"])[2]) +
-            " Rating: " +
-            champion["info"]["magic"];
-        document.getElementById("atack4Two").innerHTML =
-            capitalizeFirstLetter(Object.keys(champion["info"])[3]) +
-            " Rating: " +
-            champion["info"]["difficulty"];
-            compareChamps()
+    }
+}
+
+//Handle Chart logic
+function chart() {
+    //RÖR INTE DENNA!!!!!!
+    $(".chartContainer").html('<canvas id="myChart"></canvas>');
+
+    const myChart = document.getElementById("myChart").getContext("2d");
+    const firstChart = new Chart(myChart, {
+        type: "bar",
+        data: {
+            //title: 'Stats',
+            labels: chartLabels,
+            datasets: [
+                {
+                    label: statsName,
+                    labelColor: "White",
+                    data: chartContent,
+                    backgroundColor: chartColor,
+                    hoverBorderWidth: 2,
+
+                    hoverBorderColor: "black",
+                },
+            ],
+            color: "White",
+        },
+        options: {
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 300,
+                            fontColor: "White",
+                        },
+                    },
+                ],
+            },
+        },
+    });
+}
+
+function chartTwo() {
+    //RÖR INTE DENNA
+    $(".chartContainerTwo").html('<canvas id="myChartTwo"></canvas>');
+
+    const myChartTwo = document.getElementById("myChartTwo").getContext("2d");
+    const firstChartTwo = new Chart(myChartTwo, {
+        type: "bar",
+        data: {
+            //title: 'Stats',
+            labels: chartLabelsTwo,
+            datasets: [
+                {
+                    label: statsNameTwo,
+                    labelColor: "White",
+                    data: chartContentTwo,
+                    backgroundColor: chartColorTwo,
+                    hoverBorderWidth: 2,
+
+                    hoverBorderColor: "black",
+                },
+            ],
+            color: "White",
+        },
+        options: {
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 300,
+                            fontColor: "White",
+                        },
+                    },
+                ],
+            },
+        },
+    });
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+//Ändrar färg baserat på element av pokemon
+function setChartColor(type, nr) {
+    if (nr === 1) {
+        pokemonOneType = type;
+        chartColor = elementColors[type];
+        chart();
+        root.style.setProperty("--allShadow", "0px 6px 15px 0px " + chartColor);
+        root.style.setProperty("--typeColor", chartColor);
+    } else {
+        pokemonTwoType = type;
+        chartColorTwo = elementColors[type];
+        chartTwo();
+        root.style.setProperty(
+            "--allShadowTwo",
+            "0px 6px 15px 0px " + chartColorTwo
+        );
+
+        root.style.setProperty("--typeColorTwo", chartColorTwo);
     }
 }

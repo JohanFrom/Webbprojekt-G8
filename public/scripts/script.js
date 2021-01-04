@@ -1,3 +1,43 @@
+//HTML
+//DROPDOWN
+function pokemonDropdown() {
+    document.getElementById("pokemon-content-list").classList.toggle("show");
+    document.querySelector(".dropbtnTwo").disabled = false;
+}
+
+// Close the dropdown if the user clicks outside of it
+document.getElementById("pokemon-content-list").onclick = function (event) {
+    if (!event.target.matches(".dropbtn")) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+            }
+        }
+    }
+};
+
+function pokemonDropdownTwo() {
+    document
+        .getElementById("pokemon-content-listTwo")
+        .classList.toggle("showTwo");
+}
+
+// Close the dropdown if the user clicks outside of it
+document.getElementById("pokemon-content-listTwo").onclick = function (event) {
+    if (!event.target.matches(".dropbtnTwo")) {
+        var dropdowns = document.getElementsByClassName("dropdown-contentTwo");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("showTwo")) {
+                openDropdown.classList.remove("showTwo");
+            }
+        }
+    }
+};
 //Html tags
 const display = document.querySelector(".pokemon-graph");
 const displayTwo = document.querySelector(".pokemon-graphTwo");
@@ -52,9 +92,9 @@ const elementColors = {
     fire: "rgba(255, 90, 0, 0.7)",
     grass: "rgba(0, 186, 0, 0.7)",
     water: "rgba(0, 168, 224, 0.7)",
-    bug: "rgba(159, 186, 0, 0.7)",
+    bug: "rgba(177, 207, 0, 0.7)",
     normal: "rgba(243, 245, 246, 0.7)",
-    electric: "rgba(255, 255, 0, 0.7)",
+    electric: "rgba(255,254,80,0.7)",
     ground: "rgba(255, 192, 0, 0.7)",
     psychic: "rgba(255, 57, 196, 0.7)",
     ghost: "rgba(53, 0, 193, 0.7)",
