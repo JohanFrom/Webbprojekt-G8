@@ -315,6 +315,7 @@ header {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+
 .pokemon-statsTwo{
   display: flex;
   flex-direction:column;
@@ -675,11 +676,12 @@ ul {
 }
 
 .type {
-  width: 80px;
+  width: 120px;
   /*padding: 7px;*/
   border: 1px solid white;
   border-radius: 5px;
   margin: 4px;
+  font-size: 30px;
 }
 
 

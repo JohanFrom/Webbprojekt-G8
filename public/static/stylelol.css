@@ -14,7 +14,7 @@
     width: 300px;
     background-color: var(--typeColorTwo);
     border-style: solid;
-    margin-left: 4.7rem;
+    margin-left: 6.5rem;
     border-color: black;
     border-width: 2px;
   }
@@ -842,12 +842,16 @@ input[type="text"]{
 
 #myProgressLol {
   width: 300px;
-  background-color: red;
+  background-color: rgb(214, 26, 13);
 }
 
 #myBarLol {
   width: 50%;
   height: 30px;
-  background-color: blue;
+  background-color: rgb(15, 45, 211);
+}
+
+.fightStats{
+  margin-left: 1.5rem;
 }
 
