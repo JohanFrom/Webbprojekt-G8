@@ -386,12 +386,14 @@ header {
 }
   
 .links {
-  margin-top: 200px;
+  margin-top: 25rem;
+  background-color: rgba(0, 0, 0, 0.664);
   position: absolute;
   width: 30%;
+  border-radius: 10px;
   right: 0;
   top: 0;
-  height: 100vh;
+  max-height: 70rem;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -406,7 +408,8 @@ ul {
   text-decoration: none;
   color: #eee;
   margin: 10px;
-  padding: 0.7rem 0;
+  max-width: 30rem;
+  padding: 0.7rem;
   display: inline-block;
   font-size: 2em;
   font-weight: 300;
@@ -419,7 +422,9 @@ ul {
 }
 
 .links a:hover {
+  background-color: rgba(0, 0, 0, 0.555);
   color: rgb(184, 184, 184);
+  border-radius: 10px;
 }
   
 .container.active .links a {
