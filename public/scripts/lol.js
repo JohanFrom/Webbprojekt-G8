@@ -308,7 +308,9 @@ function compareChamps(){
 
     let championOneRatings = championOne["info"]["attack"]+championOne["info"]["defense"]+championOne["info"]["magic"]
     let championTwoRatings= championTwo["info"]["attack"]+championTwo["info"]["defense"]+championTwo["info"]["magic"]
-    
+    console.log(championOneRatings)
+    console.log(championTwoRatings)
+
     
     if (championOneRatings > championTwoRatings){
         
