@@ -4,6 +4,7 @@ const displayTwo = document.querySelector(".champion-graphTwo");
 
 //All Champions
 const championArray = [];
+var elem = document.getElementById("myBarLol");
 
 //ChampionOne
 let championOneCurrentLvl = 0;
@@ -308,20 +309,12 @@ function compareChamps(){
 
     let championOneRatings = championOne["info"]["attack"]+championOne["info"]["defense"]+championOne["info"]["magic"]
     let championTwoRatings= championTwo["info"]["attack"]+championTwo["info"]["defense"]+championTwo["info"]["magic"]
+    let totalRating;
     console.log(championOneRatings)
     console.log(championTwoRatings)
-
     
-    if (championOneRatings > championTwoRatings){
-        
-    }
-    if(championOneRatings = championTwoRatings){
-        
-    }
-    else {
-        //Two Wins
-        console.log("Right Pokemon wins");
-    }
+    totalRating= championOneRatings+ championTwoRatings
 
+    elem.style.width = championOneRatings/totalRating*100 + "%";
 
 }

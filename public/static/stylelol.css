@@ -840,14 +840,14 @@ input[type="text"]{
 
 }
 
-#myProgress {
+#myProgressLol {
   width: 300px;
-  background-color: var(--typeColorTwo);
+  background-color: red;
 }
 
-#myBar {
+#myBarLol {
   width: 50%;
   height: 30px;
-  background-color: var(--typeColor);
+  background-color: blue;
 }
 
