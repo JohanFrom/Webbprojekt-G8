@@ -80,8 +80,8 @@ function getValues(id, nbr) {
         chartLabels.push(Object.keys(champion["stats"])[0]);
         chartLabels.push(Object.keys(champion["stats"])[5]);
         chartLabels.push(Object.keys(champion["stats"])[9]);
-        chartLabels.push(Object.keys(champion["stats"])[19]);
         chartLabels.push(Object.keys(champion["stats"])[16]);
+        chartLabels.push(Object.keys(champion["stats"])[19]);
         chartLabels.push("ability power");
 
         chartContent.push(champion["stats"]["hp"]);
@@ -90,7 +90,6 @@ function getValues(id, nbr) {
         chartContent.push(champion["stats"]["attackspeed"]);
         chartContent.push(champion["stats"]["attackdamage"]);
         chartContent.push(champion["stats"]["mp"]);
-        console.log(chartContent);
         chart();
 
         //ChampionInfo
@@ -135,7 +134,8 @@ function getValues(id, nbr) {
                 " Rating: " +
                 champion["info"]["difficulty"]
         );
-    } else {
+    }
+     else {
         document.getElementById("lvlUpTwo").innerHTML = "lvl up";
         displayTwo.style.visibility = "visible";
         championTwo = champion;
@@ -146,8 +146,8 @@ function getValues(id, nbr) {
         chartLabelsTwo.push(Object.keys(champion["stats"])[0]);
         chartLabelsTwo.push(Object.keys(champion["stats"])[5]);
         chartLabelsTwo.push(Object.keys(champion["stats"])[9]);
-        chartLabelsTwo.push(Object.keys(champion["stats"])[19]);
         chartLabelsTwo.push(Object.keys(champion["stats"])[16]);
+        chartLabelsTwo.push(Object.keys(champion["stats"])[19]);
         chartLabelsTwo.push("ability power");
 
         chartContentTwo.push(champion["stats"]["hp"]);
@@ -197,6 +197,7 @@ function getValues(id, nbr) {
             capitalizeFirstLetter(Object.keys(champion["info"])[3]) +
             " Rating: " +
             champion["info"]["difficulty"];
+            compareChamps()
     }
 }
 function chartTwo() {
@@ -281,9 +282,8 @@ function chart() {
         },
     });
 }
-
 function championLvlUp(nbr) {
-    if (nbr === 1 && championOneCurrentLvl < 18) {
+    if (nbr === 1 && championOneCurrentLvl < 16) {
         championOneCurrentLvl++;
         document.getElementById("lvlUpOne").innerHTML = championOneCurrentLvl;
         chartContent[0] += championOne["stats"]["hpperlevel"];
@@ -292,7 +292,7 @@ function championLvlUp(nbr) {
         chartContent[4] += championOne["stats"]["attackdamageperlevel"];
         chartContent[5] += championOne["stats"]["mpperlevel"];
         chart();
-    } else if (nbr === 2 && championTwoCurrentLvl < 18) {
+    } else if (nbr === 2 && championTwoCurrentLvl < 16) {
         championTwoCurrentLvl++;
         document.getElementById("lvlUpTwo").innerHTML = championTwoCurrentLvl;
         chartContentTwo[0] += championTwo["stats"]["hpperlevel"];
@@ -302,4 +302,26 @@ function championLvlUp(nbr) {
         chartContentTwo[5] += championTwo["stats"]["mpperlevel"];
         chartTwo();
     }
+}
+
+function compareChamps(){
+
+    let championOneRatings = championOne["info"]["attack"]+championOne["info"]["defense"]+championOne["info"]["magic"]
+    let championTwoRatings= championTwo["info"]["attack"]+championTwo["info"]["defense"]+championTwo["info"]["magic"]
+    console.log(championOneRatings)
+    console.log(championTwoRatings)
+
+    
+    if (championOneRatings > championTwoRatings){
+        
+    }
+    if(championOneRatings = championTwoRatings){
+        
+    }
+    else {
+        //Two Wins
+        console.log("Right Pokemon wins");
+    }
+
+
 }
