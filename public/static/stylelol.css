@@ -859,7 +859,7 @@ input[type="text"]{
 }
 
 #myBarLol > p:nth-child(2){
-  margin-left: 170px;
+  margin-left: 140px;
   margin-top: 0.3rem;
   font-size: 18px;
   font-style: italic;

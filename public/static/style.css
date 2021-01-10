@@ -163,6 +163,13 @@ header {
   padding-bottom: 5em;
 }
 
+#swaggerLink{
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .frontCards{
   display: flex;
   flex-direction: row;
@@ -939,4 +946,22 @@ input[type="text"]{
 .web-api-description a:hover{
   text-decoration: none;
   color: rgb(41, 159, 255);
+}
+
+/*API-DOC*/
+.apidocBtn > a > button{
+  font-size: 30px;
+  padding: 1rem;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+}
+
+.apidocBtn > a > button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.apidocBtn{
+  margin-bottom: 10rem;
 }

@@ -705,3 +705,29 @@ ul {
 }
 
 .show {display: block;}
+
+.midPanel{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  justify-content: center;
+
+}
+
+#myProgress{
+  width: 300px;
+  background-color: rgb(214, 26, 13);
+  margin-left: 11rem;
+}
+
+#myBar{
+  display: flex;
+  width: 50%;
+  height: 30px;
+  background-color: rgb(15, 45, 211);
+}
+
+.fightStats{
+  margin-left: 6rem;
+  margin-top: 6rem;
+}
