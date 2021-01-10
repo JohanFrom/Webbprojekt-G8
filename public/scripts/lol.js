@@ -5,6 +5,9 @@ const displayTwo = document.querySelector(".champion-graphTwo");
 //All Champions
 const championArray = [];
 var elem = document.getElementById("myBarLol");
+var procentOne= document.getElementById("resultOne");
+var procentTwo= document.getElementById("resultTwo");
+
 
 //ChampionOne
 let championOneCurrentLvl = 0;
@@ -316,5 +319,7 @@ function compareChamps(){
     totalRating= championOneRatings+ championTwoRatings
 
     elem.style.width = championOneRatings/totalRating*100 + "%";
+    procentOne.innerHTML= parseFloat(championOneRatings/totalRating*100).toFixed(2)+ "%";
+    procentTwo.innerHTML= parseFloat(championTwoRatings/totalRating*100 ).toFixed(2)+ "%";
 
 }
