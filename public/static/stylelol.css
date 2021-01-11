@@ -855,6 +855,7 @@ input[type="text"]{
   margin-top: 0.3rem;
   font-size: 18px;
   font-style: italic;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
 }
 
 #myBarLol > p:nth-child(2){
@@ -862,6 +863,7 @@ input[type="text"]{
   margin-top: 0.3rem;
   font-size: 18px;
   font-style: italic;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
 }
 
 #myBarLol {
