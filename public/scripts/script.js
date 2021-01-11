@@ -26,6 +26,10 @@ let PokemonTwoDoubleDmg = false;
 let PokemonTwoImmune = false;
 let PokemonTwoStats = [];
 
+//ldjsföal
+let pokemonOneResult;
+let pokemonTwoResult;
+
 //ChartOne
 let chartContent = [];
 let chartLabels = [];
@@ -46,6 +50,8 @@ let switcher = false;
 
 //ResultBar
 var elem = document.getElementById("myBar");
+var procentOne = document.getElementById("resultOne");
+var procentTwo = document.getElementById("resultTwo");
 
 //ElementColors
 const elementColors = {
@@ -182,6 +188,7 @@ function pokemonSelectFunc(id, nr) {
     }).done(function (data) {
         pokemonStats.style.display = "block";
         //ChartData
+        console.log("in to setchartcolor " + data["types"][0]["type"]["name"]);
         setChartColor(data["types"][0]["type"]["name"], nr);
         if (nr === 1) {
             display.style.visibility = "visible";
@@ -328,6 +335,11 @@ function setChartColor(type, nr) {
     }
 }
 
+PokemonOneStats[0];
+PokemonOneStats[2];
+
+PokemonOneStats[1];
+
 async function fight() {
     let infoOne = await typeRequest(
         selectedPokemons[0]["types"][0]["type"]["url"]
@@ -336,89 +348,43 @@ async function fight() {
         selectedPokemons[1]["types"][0]["type"]["url"]
     );
 
-    checkDoubleDamage(infoOne["damage_relations"], "One");
-    checkDoubleDamage(infoTwo["damage_relations"], "Two");
+    pokemonOneResult =
+        PokemonOneStats[0] +
+        PokemonOneStats[2] +
+        PokemonOneStats[1] +
+        (await checkDoubleDamage(
+            infoOne["damage_relations"],
+            PokemonOneStats[1],
+            pokemonTwoType
+        ));
 
-    checkNoDamage(infoOne["damage_relations"]["no_damage_to"], "One");
-    checkNoDamage(infoTwo["damage_relations"]["no_damage_to"], "Two");
+    pokemonTwoResult =
+        PokemonTwoStats[0] +
+        PokemonTwoStats[2] +
+        PokemonTwoStats[1] +
+        (await checkDoubleDamage(
+            infoTwo["damage_relations"],
+            PokemonTwoStats[1],
+            pokemonOneType
+        ));
 
-    let pokemonOneHealth = PokemonOneStats[0] + PokemonOneStats[2];
-    let pokemonTwoHealth = PokemonTwoStats[0] + PokemonTwoStats[2];
+    let totalRating = pokemonOneResult + pokemonTwoResult;
 
-    let pokemonOneHealthLeft;
-    let pokemonTwoHealthLeft;
+    elem.style.width = (pokemonOneResult / totalRating) * 100 + "%";
 
-    if (PokemonOneDoubleDmg) {
-        console.log("Double dmg One");
-        pokemonTwoHealthLeft = pokemonTwoHealth - PokemonOneStats[1] * 2;
-    } else {
-        pokemonTwoHealthLeft = pokemonTwoHealth - PokemonOneStats[1];
-    }
-
-    if (PokemonOneDoubleDmg) {
-        console.log("Double dmg two");
-        pokemonOneHealthLeft = pokemonOneHealth - PokemonTwoStats[1] * 2;
-    } else {
-        pokemonOneHealthLeft = pokemonOneHealth - PokemonTwoStats[1];
-    }
-
-    let pokemonOneResult = pokemonOneHealth - pokemonOneHealthLeft;
-    let pokemonTwoResult = pokemonTwoHealth - pokemonTwoHealthLeft;
-
-    if (pokemonOneResult < pokemonTwoResult) {
-        //One Wins
-        console.log("Left Pokemon wins");
-        elem.style.width = 90 + "%";
-    } else {
-        //Two Wins
-        console.log("Right Pokemon wins");
-        elem.style.width = 10 + "%";
-    }
+    procentOne.innerHTML =
+        parseFloat((pokemonOneResult / totalRating) * 100).toFixed(2) + "%";
+    procentTwo.innerHTML =
+        parseFloat((pokemonTwoResult / totalRating) * 100).toFixed(2) + "%";
 }
 
-function checkDoubleDamage(data, num) {
-    PokemonOneDoubleDmg = false;
-    PokemonTwoDoubleDmg = false;
-
+async function checkDoubleDamage(data, dmg, opType) {
     for (i = 0; i < data["double_damage_to"].length; i++) {
-        if (num === "One") {
-            if (data["double_damage_to"][i]["name"] === pokemonTwoType) {
-                console.log("pokemon one dbdmg");
-                PokemonOneDoubleDmg = true;
-            } else {
-                PokemonOneDoubleDmg = false;
-            }
-        } else {
-            if (data["double_damage_to"][i]["name"] === pokemonOneType) {
-                console.log("pokemon two dbdmg");
-
-                PokemonTwoDoubleDmg = true;
-            } else {
-                PokemonTwoDoubleDmg = false;
-            }
+        if (data["double_damage_to"][i]["name"] === opType) {
+            return dmg;
         }
     }
-}
-
-function checkNoDamage(data, num) {
-    PokemonTwoImmune = false;
-    PokemonOneImmune = false;
-
-    for (i = 0; i < data.length; i++) {
-        if (num === "One") {
-            if (data[i] === pokemonTwoType) {
-                PokemonTwoImmune = true;
-            } else {
-                PokemonTwoImmune = false;
-            }
-        } else {
-            if (data[i] === pokemonOneType) {
-                PokemonOneImmune = true;
-            } else {
-                PokemonOneImmune = false;
-            }
-        }
-    }
+    return 0;
 }
 
 async function typeRequest(url) {
