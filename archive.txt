@@ -8,3 +8,50 @@ banner.addEventListener("click", async () => {
 });
 
 
+let infoOne = await typeRequest(
+        selectedPokemonTypeOne["types"][0]["type"]["url"]
+    );
+    let infoTwo = await typeRequest(
+        selectedPokemonTypeTwo["types"][0]["type"]["url"]
+    );
+
+    checkDoubleDamage(infoOne["damage_relations"], "One");
+    checkDoubleDamage(infoTwo["damage_relations"], "Two");
+
+    checkNoDamage(infoOne["damage_relations"]["no_damage_to"], "One");
+    checkNoDamage(infoTwo["damage_relations"]["no_damage_to"], "Two");
+
+    let pokemonOneHealth = pokemonGoOne["base_defense"];
+    let pokemonTwoHealth = pokemonGoTwo["base_defense"];
+
+    let pokemonOneHealthLeft;
+    let pokemonTwoHealthLeft;
+
+    if (PokemonOneDoubleDmg) {
+        console.log("Double dmg One");
+        pokemonTwoHealthLeft =
+            pokemonTwoHealth - pokemonGoOne["base_attack"] * 2;
+    } else {
+        pokemonTwoHealthLeft = pokemonTwoHealth - pokemonGoOne["base_attack"];
+    }
+
+    if (PokemonOneDoubleDmg) {
+        console.log("Double dmg two");
+        pokemonOneHealthLeft =
+            pokemonOneHealth - pokemonGoTwo["base_attack"] * 2;
+    } else {
+        pokemonOneHealthLeft = pokemonOneHealth - pokemonGoTwo["base_attack"];
+    }
+
+    let pokemonOneResult = pokemonOneHealth - pokemonOneHealthLeft;
+    let pokemonTwoResult = pokemonTwoHealth - pokemonTwoHealthLeft;
+
+    if (pokemonOneResult < pokemonTwoResult) {
+        //One Wins
+        console.log("Left Pokemon wins");
+        elem.style.width = 90 + "%";
+    } else {
+        //Two Wins
+        console.log("Right Pokemon wins");
+        elem.style.width = 10 + "%";
+    }

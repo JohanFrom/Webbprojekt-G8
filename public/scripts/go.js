@@ -16,6 +16,10 @@ let chartLabels = [];
 let statsName = "Stats";
 let chartColor = "";
 
+//ldjsföal
+let pokemonOneResult;
+let pokemonTwoResult;
+
 //ChartTwo
 let chartContentTwo = [];
 let chartLabelsTwo = [];
@@ -30,11 +34,13 @@ let switcher = false;
 
 //ResultBar
 var elem = document.getElementById("myBar");
+var procentOne = document.getElementById("resultOne");
+var procentTwo = document.getElementById("resultTwo");
 
-let selectedPokemonTypeOne= {}
-let selectedPokemonTypeTwo= {}
-let selectedPokemonOne= {}
-let selectedPokemonTwo= {}
+let selectedPokemonTypeOne = {};
+let selectedPokemonTypeTwo = {};
+let selectedPokemonOne = {};
+let selectedPokemonTwo = {};
 
 const elementColors = {
     fire: "rgba(255, 90, 0, 0.7)",
@@ -95,10 +101,9 @@ async function getValues(id, nbr) {
     if (nbr === 1) {
         display.style.visibility = "visible";
         pokemonGoOne = pokemonGo;
-        selectedPokemonTypeOne= jsonConvert;
+        selectedPokemonTypeOne = jsonConvert;
 
-    
-        console.log(selectedPokemonTypeOne)
+        console.log(selectedPokemonTypeOne);
 
         //till graf
         chartLabels = [];
@@ -138,12 +143,15 @@ async function getValues(id, nbr) {
                 jsonConvert["types"][0]["type"]["name"] +
                 "</p>";
         }
+        if (switcher) {
+            fight();
+        }
     } else {
         displayTwo.style.visibility = "visible";
         displayMid.style.visibility = "visible";
         switcher = true;
         pokemonGoTwo = pokemonGo;
-        selectedPokemonTypeTwo= jsonConvert;
+        selectedPokemonTypeTwo = jsonConvert;
 
         //till graf
         chartLabelsTwo = [];
@@ -183,6 +191,7 @@ async function getValues(id, nbr) {
                 jsonConvert["types"][0]["type"]["name"] +
                 "</p>";
         }
+        fight();
     }
 }
 
@@ -291,50 +300,40 @@ function setChartColor(type, nr) {
 }
 
 async function fight() {
-    let infoOne =await typeRequest( selectedPokemonTypeOne["types"][0]["type"]["url"]);
-    let infoTwo = await typeRequest (selectedPokemonTypeTwo["types"][0]["type"]["url"]);
-
+    let infoOne = await typeRequest(
+        selectedPokemonTypeOne["types"][0]["type"]["url"]
+    );
+    let infoTwo = await typeRequest(
+        selectedPokemonTypeTwo["types"][0]["type"]["url"]
+    );
 
     checkDoubleDamage(infoOne["damage_relations"], "One");
     checkDoubleDamage(infoTwo["damage_relations"], "Two");
 
-    checkNoDamage(infoOne["damage_relations"]["no_damage_to"], "One");
-    checkNoDamage(infoTwo["damage_relations"]["no_damage_to"], "Two");
-
-    let pokemonOneHealth = pokemonGoOne["base_defense"];
-    let pokemonTwoHealth = pokemonGoTwo["base_defense"];
-
-
-    let pokemonOneHealthLeft;
-    let pokemonTwoHealthLeft;
-
-
+    pokemonOneResult =
+        pokemonGoOne["base_defense"] +
+        pokemonGoOne["base_stamina"] +
+        pokemonGoOne["base_attack"];
     if (PokemonOneDoubleDmg) {
-        console.log("Double dmg One");
-        pokemonTwoHealthLeft = pokemonTwoHealth - pokemonGoOne["base_attack"] * 2;
-    } else {
-        pokemonTwoHealthLeft = pokemonTwoHealth - pokemonGoOne["base_attack"];
+        pokemonOneResult += pokemonGoOne["base_attack"];
     }
 
-    if (PokemonOneDoubleDmg) {
-        console.log("Double dmg two");
-        pokemonOneHealthLeft = pokemonOneHealth - PokemonTwoStats[1] * 2;
-    } else {
-        pokemonOneHealthLeft = pokemonOneHealth - PokemonTwoStats[1];
+    pokemonTwoResult =
+        pokemonGoTwo["base_defense"] +
+        pokemonGoTwo["base_stamina"] +
+        pokemonGoTwo["base_attack"];
+    if (PokemonTwoDoubleDmg) {
+        pokemonTwoResult += pokemonGoTwo["base_attack"];
     }
 
-    let pokemonOneResult = pokemonOneHealth - pokemonOneHealthLeft;
-    let pokemonTwoResult = pokemonTwoHealth - pokemonTwoHealthLeft;
+    let totalRating = pokemonOneResult + pokemonTwoResult;
 
-    if (pokemonOneResult < pokemonTwoResult) {
-        //One Wins
-        console.log("Left Pokemon wins");
-        elem.style.width = 90 + "%";
-    } else {
-        //Two Wins
-        console.log("Right Pokemon wins");
-        elem.style.width = 10 + "%";
-    }
+    elem.style.width = (pokemonOneResult / totalRating) * 100 + "%";
+
+    procentOne.innerHTML =
+        parseFloat((pokemonOneResult / totalRating) * 100).toFixed(2) + "%";
+    procentTwo.innerHTML =
+        parseFloat((pokemonTwoResult / totalRating) * 100).toFixed(2) + "%";
 }
 
 function checkDoubleDamage(data, num) {
@@ -359,27 +358,6 @@ function checkDoubleDamage(data, num) {
             }
         }
     }
-}
-function checkNoDamage(data, num) {
-    PokemonTwoImmune = false;
-    PokemonOneImmune = false;
-
-    for (i = 0; i < data.length; i++) {
-        if (num === "One") {
-            if (data[i] === pokemonTwoType) {
-                PokemonTwoImmune = true;
-            } else {
-                PokemonTwoImmune = false;
-            }
-        } else {
-            if (data[i] === pokemonOneType) {
-                PokemonOneImmune = true;
-            } else {
-                PokemonOneImmune = false;
-            }
-        }
-    }
-    
 }
 
 async function typeRequest(url) {

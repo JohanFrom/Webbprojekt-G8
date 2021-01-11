@@ -707,14 +707,11 @@ ul {
 .show {display: block;}
 
 .midPanel{
-  display: flex;
-  flex-direction: column;
   width: 100px;
-  justify-content: center;
-
 }
 
 #myProgress{
+  
   width: 300px;
   background-color: rgb(214, 26, 13);
   margin-left: 11rem;
@@ -730,4 +727,18 @@ ul {
 .fightStats{
   margin-left: 6rem;
   margin-top: 6rem;
+}
+
+#myBarLol > p:nth-child(1){
+  margin-left: 20px;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  font-style: italic;
+}
+
+#myBarLol > p:nth-child(2){
+  margin-left: 140px;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  font-style: italic;
 }
