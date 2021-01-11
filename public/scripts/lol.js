@@ -5,9 +5,8 @@ const displayTwo = document.querySelector(".champion-graphTwo");
 //All Champions
 const championArray = [];
 var elem = document.getElementById("myBarLol");
-var procentOne= document.getElementById("resultOne");
-var procentTwo= document.getElementById("resultTwo");
-
+var procentOne = document.getElementById("resultOne");
+var procentTwo = document.getElementById("resultTwo");
 
 //ChampionOne
 let championOneCurrentLvl = 0;
@@ -138,8 +137,7 @@ function getValues(id, nbr) {
                 " Rating: " +
                 champion["info"]["difficulty"]
         );
-    }
-     else {
+    } else {
         document.getElementById("lvlUpTwo").innerHTML = "lvl up";
         displayTwo.style.visibility = "visible";
         championTwo = champion;
@@ -201,7 +199,7 @@ function getValues(id, nbr) {
             capitalizeFirstLetter(Object.keys(champion["info"])[3]) +
             " Rating: " +
             champion["info"]["difficulty"];
-            compareChamps()
+        compareChamps();
     }
 }
 function chartTwo() {
@@ -287,7 +285,7 @@ function chart() {
     });
 }
 function championLvlUp(nbr) {
-    if (nbr === 1 && championOneCurrentLvl < 16) {
+    if (nbr === 1 && championOneCurrentLvl < 18) {
         championOneCurrentLvl++;
         document.getElementById("lvlUpOne").innerHTML = championOneCurrentLvl;
         chartContent[0] += championOne["stats"]["hpperlevel"];
@@ -296,7 +294,7 @@ function championLvlUp(nbr) {
         chartContent[4] += championOne["stats"]["attackdamageperlevel"];
         chartContent[5] += championOne["stats"]["mpperlevel"];
         chart();
-    } else if (nbr === 2 && championTwoCurrentLvl < 16) {
+    } else if (nbr === 2 && championTwoCurrentLvl < 18) {
         championTwoCurrentLvl++;
         document.getElementById("lvlUpTwo").innerHTML = championTwoCurrentLvl;
         chartContentTwo[0] += championTwo["stats"]["hpperlevel"];
@@ -308,18 +306,24 @@ function championLvlUp(nbr) {
     }
 }
 
-function compareChamps(){
-
-    let championOneRatings = championOne["info"]["attack"]+championOne["info"]["defense"]+championOne["info"]["magic"]
-    let championTwoRatings= championTwo["info"]["attack"]+championTwo["info"]["defense"]+championTwo["info"]["magic"]
+function compareChamps() {
+    let championOneRatings =
+        championOne["info"]["attack"] +
+        championOne["info"]["defense"] +
+        championOne["info"]["magic"];
+    let championTwoRatings =
+        championTwo["info"]["attack"] +
+        championTwo["info"]["defense"] +
+        championTwo["info"]["magic"];
     let totalRating;
-    console.log(championOneRatings)
-    console.log(championTwoRatings)
-    
-    totalRating= championOneRatings+ championTwoRatings
+    console.log(championOneRatings);
+    console.log(championTwoRatings);
 
-    elem.style.width = championOneRatings/totalRating*100 + "%";
-    procentOne.innerHTML= parseFloat(championOneRatings/totalRating*100).toFixed(2)+ "%";
-    procentTwo.innerHTML= parseFloat(championTwoRatings/totalRating*100 ).toFixed(2)+ "%";
+    totalRating = championOneRatings + championTwoRatings;
 
+    elem.style.width = (championOneRatings / totalRating) * 100 + "%";
+    procentOne.innerHTML =
+        parseFloat((championOneRatings / totalRating) * 100).toFixed(2) + "%";
+    procentTwo.innerHTML =
+        parseFloat((championTwoRatings / totalRating) * 100).toFixed(2) + "%";
 }
