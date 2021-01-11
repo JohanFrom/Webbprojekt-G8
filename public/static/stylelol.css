@@ -8,13 +8,20 @@
   }
   #midPanelLol{
     margin-top: 6rem;
+    border: solid;
+    border-color: rgb(109, 189, 255);
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: var(--allShadow);
+    border-radius: 10px;
+    height: 11rem;
+    margin-left: 4rem;
   }
   
   #myProgressLol {
     width: 300px;
     background-color: var(--typeColorTwo);
     border-style: solid;
-    margin-left: 6.5rem;
+    margin-left: 3rem;
     border-color: black;
     border-width: 2px;
   }
@@ -838,17 +845,9 @@ input[type="text"]{
 
 .show {display: block;}
 
-.midPanel{
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-  justify-content: center;
-
-}
-
 #myProgressLol {
   width: 300px;
-  background-color: rgb(214, 26, 13);
+  background-color: rgb(153, 6, 133);
 }
 
 #myBarLol > p:nth-child(1){
@@ -869,10 +868,5 @@ input[type="text"]{
   display: flex;
   width: 50%;
   height: 30px;
-  background-color: rgb(15, 45, 211);
+  background-color: rgb(109, 189, 255);
 }
-
-.fightStats{
-  margin-left: 1.5rem;
-}
-
