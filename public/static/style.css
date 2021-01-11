@@ -990,5 +990,5 @@ input[type="text"]{
   display: flex;
   width: 50%;
   height: 30px;
-  background-color: rgb(109, 189, 255);
+  background-color: var(--typeColor);
 }
