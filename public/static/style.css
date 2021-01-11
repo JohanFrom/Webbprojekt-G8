@@ -56,7 +56,6 @@ button{
   background: rgb(37, 37, 37);
 }
 
-
 .menu{
   max-width: 72rem;
   width: 100%;
@@ -206,12 +205,12 @@ header {
   padding: 0 2rem;
 }
 
-  .title{
-    font-size: 1.7rem;
-  }
-  .titleTwo{
-    font-size: 1.7rem;
-  }
+.title{
+  font-size: 1.7rem;
+}
+.titleTwo{
+  font-size: 1.7rem;
+}
   
 .index-title {
   font-size: 2.7rem;
@@ -931,7 +930,6 @@ input[type="text"]{
   margin-left: 22rem;
   padding: 10px;
 }
-
 
 .web-api-description h2{
   font-weight: 500;

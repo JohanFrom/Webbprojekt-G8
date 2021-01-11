@@ -221,33 +221,6 @@ header {
   padding-bottom: 5em;
 }
 
-.frontCards{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 100em;
-}
-
-.frontCards a{
-  color: black;
-  text-decoration: none;
-}
-
-.cardPoke{
-  margin: auto;
-  padding: 5em;
-}
-
-.cardLol{
-  margin: auto;
-  padding: 5em;
-}
-
-.cardDota{
-  margin: auto;
-  padding: 5em;
-}
-
 .pokemon-info{
   display: flex;
   justify-content: center;
@@ -256,12 +229,13 @@ header {
   padding: 0 2rem;
 }
 
-  .title{
-    font-size: 1.7rem;
-  }
-  .titleTwo{
-    font-size: 1.7rem;
-  }
+.title{
+  font-size: 1.7rem;
+}
+
+.titleTwo{
+  font-size: 1.7rem;
+}
   
 .index-title {
   font-size: 2.7rem;
