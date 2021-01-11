@@ -47,6 +47,7 @@ const elementColors = {
     grass: "rgba(0, 186, 0, 0.7)",
     water: "rgba(0, 168, 224, 0.7)",
     bug: "rgba(159, 186, 0, 0.7)",
+    dark: "rgba(54,36,35,0.7)",
     normal: "rgba(243, 245, 246, 0.7)",
     electric: "rgba(255, 255, 0, 0.7)",
     ground: "rgba(255, 192, 0, 0.7)",
