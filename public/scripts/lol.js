@@ -1,6 +1,7 @@
 const banner = document.getElementById("banner");
 const display = document.querySelector(".champion-graph");
 const displayTwo = document.querySelector(".champion-graphTwo");
+const displayMid = document.getElementById("midPanelLol");
 
 //All Champions
 const championArray = [];
@@ -140,6 +141,7 @@ function getValues(id, nbr) {
     } else {
         document.getElementById("lvlUpTwo").innerHTML = "lvl up";
         displayTwo.style.visibility = "visible";
+        displayMid.style.visibility = "visible";
         championTwo = champion;
         championTwoCurrentLvl = 1;
         chartLabelsTwo = [];

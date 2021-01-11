@@ -15,6 +15,7 @@
     border-radius: 10px;
     height: 11rem;
     margin-left: 4rem;
+    visibility: hidden;
   }
   
   #myProgressLol {
@@ -723,11 +724,6 @@ ul {
   border-radius: 5px;
   margin: 4px;
 }
-
-
-
-
-
 
 /*LEAUGE OF LEGENDS*/
 .lol-title{

@@ -679,6 +679,7 @@ ul {
 .show {display: block;}
 
 #midPanel{
+  visibility: hidden;
   margin-top: 6rem;
   border: solid;
   border-color: rgb(109, 189, 255);
@@ -691,7 +692,7 @@ ul {
 
 #myProgress{
   width: 300px;
-  background-color: rgb(28, 109, 163);
+  background-color: var(--typeColorTwo);
   margin-left: 4.5rem;
 }
 
@@ -699,7 +700,7 @@ ul {
   display: flex;
   width: 50%;
   height: 30px;
-  background-color: black;
+  background-color: var(--typeColor);
 }
 
 .fightStats{
