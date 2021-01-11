@@ -284,6 +284,7 @@ function chart() {
         },
     });
 }
+
 function championLvlUp(nbr) {
     if (nbr === 1 && championOneCurrentLvl < 18) {
         championOneCurrentLvl++;

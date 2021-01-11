@@ -706,19 +706,12 @@ ul {
 
 .show {display: block;}
 
-#midPanel{
-  margin-top: 6rem;
-  border: solid;
-  border-color: rgb(109, 189, 255);
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: var(--allShadow);
-  border-radius: 10px;
-  height: 13rem;
-  margin-left: 4rem;
-  width: 25rem;
+.midPanel{
+  width: 100px;
 }
 
 #myProgress{
+  
   width: 300px;
   background-color: rgb(28, 109, 163);
   margin-left: 3rem;
@@ -733,4 +726,18 @@ ul {
 
 .fightStats{
   margin-top: 0.5rem;
+}
+
+#myBarLol > p:nth-child(1){
+  margin-left: 20px;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  font-style: italic;
+}
+
+#myBarLol > p:nth-child(2){
+  margin-left: 140px;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  font-style: italic;
 }
