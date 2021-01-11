@@ -706,28 +706,31 @@ ul {
 
 .show {display: block;}
 
-.midPanel{
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-  justify-content: center;
-
+#midPanel{
+  margin-top: 6rem;
+  border: solid;
+  border-color: rgb(109, 189, 255);
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: var(--allShadow);
+  border-radius: 10px;
+  height: 13rem;
+  margin-left: 4rem;
+  width: 25rem;
 }
 
 #myProgress{
   width: 300px;
-  background-color: rgb(214, 26, 13);
-  margin-left: 11rem;
+  background-color: rgb(28, 109, 163);
+  margin-left: 3rem;
 }
 
 #myBar{
   display: flex;
   width: 50%;
   height: 30px;
-  background-color: rgb(15, 45, 211);
+  background-color: rgb(255, 255, 255);
 }
 
 .fightStats{
-  margin-left: 6rem;
-  margin-top: 6rem;
+  margin-top: 0.5rem;
 }
