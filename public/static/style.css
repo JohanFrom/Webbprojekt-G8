@@ -964,3 +964,31 @@ input[type="text"]{
 .apidocBtn{
   margin-bottom: 10rem;
 }
+
+#myProgressLol {
+  width: 300px;
+  background-color: rgb(153, 6, 133);
+}
+
+#myBar > p:nth-child(1){
+  margin-left: 20px;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  font-style: italic;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+}
+
+#myBar> p:nth-child(2){
+  margin-left: 140px;
+  margin-top: 0.3rem;
+  font-size: 18px;
+  font-style: italic;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+}
+
+#myBar {
+  display: flex;
+  width: 50%;
+  height: 30px;
+  background-color: rgb(109, 189, 255);
+}
